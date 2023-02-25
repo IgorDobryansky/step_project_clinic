@@ -1,7 +1,8 @@
 {
-  "name": "webpack",
+  "name": "step_project-clinic",
   "version": "1.0.0",
-  "description": "",
+  "description": "Третій степ-проект в Dan-It",
+  "author": "Олена Полянська, Ігор Добрянський",
   "main": "index.js",
   "scripts": {
     "dev": "set NODE_ENV=development&&webpack serve",
@@ -9,7 +10,6 @@
     "build": "set NODE_ENV=production&&webpack",
     "clear": "rd /s /q public"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.21.0",
