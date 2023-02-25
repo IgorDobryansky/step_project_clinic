@@ -1,0 +1,25 @@
+@import "reset";
+@import "fonts";
+@import "variables";
+@import "mixin";
+
+#app{
+    position: relative;
+    padding: 15px 15px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
+}
+.button {
+  // cursor: pointer;
+  border: 1px solid black;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  &:active {
+    transform: translateY(2px);
+    border: 1px solid transparent;
+    background-color: white;
+  }
+}
+

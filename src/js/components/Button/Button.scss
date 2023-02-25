@@ -1,0 +1,15 @@
+@import "../../../styles/mixin";
+
+.login-buttons {
+    height: 100%;
+    @include flex;
+  
+    .button-login {
+      margin-left: 15px;
+    }
+  
+    .button-register {
+      width: 100%;
+      max-width: 110px;
+    }
+  }

@@ -1,0 +1,28 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixin";
+
+.header {
+  padding: 0 15px;
+  height: 100px;
+  background-color: $header-bgc;
+  @include flex;
+  font-family: Lato;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 50px;
+  .logo-wrapper {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid black;
+    &:active {
+      border: 1px solid transparent;
+      transform: translateY(2px);
+    }
+    .logo-image {
+      width: 100%;
+    }
+  }
+  
+}
