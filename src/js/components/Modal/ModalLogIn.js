@@ -22,8 +22,8 @@ export default class ModalLogin extends Modal {
       console.log(this._passwordInput.value);
       this._loginButton.disabled = true;
 
-      logInRequest(this._emailInput.value, this._passwordInput.value).then(
-        (response) => {
+      logInRequest(this._emailInput.value, this._passwordInput.value)
+        .then((response) => {
           if (!response.ok) {
             this._loginButton.disabled = false;
             this._errorMessage.innerHTML = `Вибачте. Помилка авторизації. Перевірте введені дані або зареєструйтесь.`;
@@ -32,9 +32,12 @@ export default class ModalLogin extends Modal {
 
           this._loginButton.disabled = false;
           this._modal.remove();
-        }
-      );
-      // console.log(localStorage.getItem("clinic-token"));
+          return response.text();
+        })
+        .then((token) => {
+          localStorage.setItem("clinic-token", `${token}`);
+          console.log(localStorage.getItem("clinic-token"));
+        });
     });
 
     this._registerLink = createElement("a", "register-link");
