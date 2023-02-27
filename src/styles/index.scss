@@ -56,6 +56,16 @@ button{
         border-bottom: 1px solid black;
       }
     }
+    .modal-error{
+      margin-top: 10px;
+      height: 14px;
+      color: red;
+      opacity: 0;
+      transition: 200ms ease-in-out;
+      &.show{
+        opacity: 1;
+      }
+    }
     .button-check-data{
       margin-top: 10px;
     }

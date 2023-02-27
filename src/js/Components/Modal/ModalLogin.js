@@ -10,6 +10,9 @@ export default class ModalLogin extends Modal {
     this._loginEmailLegend.className = "email-legend";
     this._loginEmailLegend.innerText = "Емейл";
     this._emailInput = document.createElement("input");
+    this._emailInput.addEventListener("input", () => {
+      this._errorMessage.innerHTML = "";
+    });
     this._emailInput.type = "text";
     this._emailInput.className = "email-input";
     this._loginEmailFieldset.append(this._loginEmailLegend, this._emailInput);
@@ -23,12 +26,18 @@ export default class ModalLogin extends Modal {
     this._loginPasswordLegendText.innerText = "Пароль";
     this._loginPasswordLegend.append(this._loginPasswordLegendText);
     this._passwordInput = document.createElement("input");
+    this._passwordInput.addEventListener("input", () => {
+      this._errorMessage.innerHTML = "";
+    });
     this._passwordInput.type = "password";
     this._passwordInput.className = "password-input";
     this._loginPasswordFieldset.append(
       this._loginPasswordLegend,
       this._passwordInput
     );
+
+    this._errorMessage = document.createElement("span");
+    this._errorMessage.className = "modal-error";
 
     this._enterButton = document.createElement("button");
     this._enterButton.className = "button-check-data";
@@ -53,6 +62,7 @@ export default class ModalLogin extends Modal {
     this._modal.append(
       this._loginEmailFieldset,
       this._loginPasswordFieldset,
+      this._errorMessage,
       this._enterButton,
       this._orText,
       this._registerLink
@@ -63,6 +73,7 @@ export default class ModalLogin extends Modal {
     const emailValue = this._emailInput.value;
     const passwordValue = this._passwordInput.value;
     this._enterButton.disabled = true;
+    this._errorMessage.classList.remove("show");
 
     try {
       let request = await fetch(
@@ -92,7 +103,8 @@ export default class ModalLogin extends Modal {
       }
     } catch (error) {
       this._enterButton.disabled = false;
-      console.log(error);
+      this._errorMessage.innerHTML = error;
+      this._errorMessage.classList.add("show");
     }
   }
 
