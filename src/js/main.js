@@ -4,23 +4,19 @@ import "../styles/index.scss";
 // const image = document.createElement("img")
 // image.src = logo
 
-
-
-
 import Visit from "./prepare.js";
-import Login from "./Components/Login.js";
+import Login from "./Components/Login/Login.js";
 import { getAllVisits, putVisit } from "./helpers/visitRequests.js";
 
 function app() {
   // window.addEventListener('beforeunload', (event) => {
-    // event.preventDefault();
-    // event.returnValue = '';
-    // localStorage.removeItem('clinic-token')
+  // event.preventDefault();
+  // event.returnValue = '';
+  // localStorage.removeItem('clinic-token')
   // });
   const visitsBoard = document.getElementById("visits");
 
-  const loginStatus = document.getElementById("login-status");
-  loginStatus.append(new Login().render());
+  Login.isLogged();
 
   visitsBoard.append(new Visit().render());
 

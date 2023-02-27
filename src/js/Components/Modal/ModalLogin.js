@@ -1,5 +1,5 @@
 import Modal from "./Modal.js";
-// import loginRequest from "../helpers/loginRequest.js";
+import Login from "../Login/Login.js";
 
 export default class ModalLogin extends Modal {
   constructor() {
@@ -30,8 +30,8 @@ export default class ModalLogin extends Modal {
       this._passwordInput
     );
 
-    this._enterButton = document.createElement("a");
-    this._enterButton.className = "button check-data";
+    this._enterButton = document.createElement("button");
+    this._enterButton.className = "button-check-data";
     this._enterButton.innerText = "Увійдіть";
     this._enterButton.addEventListener("click", (event) => {
       event.preventDefault();
@@ -62,6 +62,7 @@ export default class ModalLogin extends Modal {
   async loginRequest() {
     const emailValue = this._emailInput.value;
     const passwordValue = this._passwordInput.value;
+    this._enterButton.disabled = true;
 
     try {
       let request = await fetch(
@@ -82,13 +83,15 @@ export default class ModalLogin extends Modal {
 
       if (response.ok) {
         let token = await request.text();
-        console.log("token", token);
+        this._modalWrapper.remove();
         localStorage.setItem("clinic-token", `${token}`);
-        console.log("storage", localStorage.getItem("clinic-token"));
+        Login.loginStatus = true;
+        new Login().render();
       } else {
         throw "Перевірте правильність емейлу чи паролю або зареєструйтесь";
       }
     } catch (error) {
+      this._enterButton.disabled = false;
       console.log(error);
     }
   }
