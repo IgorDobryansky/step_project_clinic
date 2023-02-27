@@ -8,7 +8,7 @@ export default class Modal {
       if (!itsModal || itsClose) this._modalWrapper.remove();
     });
     this._modalWrapper.className = "modal-window-wrapper";
-    this._modal = document.createElement("div");
+    this._modal = document.createElement("form");
     this._modal.className = "modal-window";
     this._closeButton = document.createElement("span");
     this._closeButton.innerHTML = "&#10005;";
