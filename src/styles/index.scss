@@ -3,14 +3,13 @@
 @import "variables";
 @import "mixin";
 
-button{
+button {
   padding: 10px 20px;
   border-radius: 20px;
   border: 1px solid black;
-  &:active{
+  &:active {
     transform: translateY(1px);
     border: 1px solid transparent;
-
   }
 }
 
@@ -33,49 +32,90 @@ button{
     flex-direction: column;
     align-items: center;
     border: 1px solid black;
-    padding: 20px 30px;
-    .modal-close-button{
+    padding: 20px 90px;
+    .modal-close-button {
       position: absolute;
       top: 10px;
       right: 10px;
       transition: scale 100ms ease-in-out;
       cursor: pointer;
-      &:hover{
+      &:hover {
         scale: 1.5;
       }
     }
-    fieldset {
-      margin-top: 20px;
-      border: 1px solid black;
+    .fieldset {
       position: relative;
-      padding: 5px 10px;
-
-      input {
+      margin-top: 30px;
+      width: 100%;
+      & .input:focus ~ .label,
+      & .input:not(:placeholder-shown) ~ .label {
+        top: 0;
+        transform: translateY(-50%) scale(0.75);
+      }
+      .input {
+        &::placeholder {
+          opacity: 0;
+        }
+        width: 100%;
+        height: 32px;
         border: none;
         background-color: inherit;
-        border-bottom: 1px solid black;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #bdbdbd;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        &:focus {
+          color: #212529;
+          background-color: #fff;
+          border-color: #bdbdbd;
+          outline: 0;
+          box-shadow: 0 0 0 0.3rem rgba(158, 158, 158, 0.25);
+        }
+      }
+      .label {
+        font-size: 18px;
+        position: absolute;
+        pointer-events: none;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: top 0.1s ease-in-out, scale 0.1s ease-in-out;
       }
     }
-    .modal-error{
+    .modal-error {
       margin-top: 10px;
       height: 14px;
       color: red;
       opacity: 0;
       transition: 200ms ease-in-out;
-      &.show{
+      text-align: center;
+      &.show {
         opacity: 1;
       }
     }
-    .button-check-data{
+    .button-check-data {
       margin-top: 10px;
-    }
-    .or-text{
-      margin-top: 10px;
-    }
-    .register-link{
-      margin-top: 10px;
-      &:hover{
+      transition: text-decoration 100ms ease-in-out;
+      &:focus {
         text-decoration: underline;
+      }
+    }
+    .or-text {
+      margin-top: 10px;
+    }
+    .register-link {
+      margin-top: 10px;
+      transition: scale 100ms ease-in-out;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:focus {
+        scale: 1.1;
       }
     }
   }
@@ -98,7 +138,7 @@ button{
       }
     }
     // .login-status{
-      
+
     // }
   }
   .main {
