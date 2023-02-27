@@ -10,8 +10,7 @@ export default class Modal {
     this._modalWrapper.className = "modal-window-wrapper";
     this._modal = document.createElement("div");
     this._modal.className = "modal-window";
-    this._closeButton = document.createElement("a");
-    this._closeButton.href = "#!";
+    this._closeButton = document.createElement("span");
     this._closeButton.innerHTML = "&#10005;";
     this._closeButton.className = "modal-close-button"
     this._modal.append(this._closeButton);

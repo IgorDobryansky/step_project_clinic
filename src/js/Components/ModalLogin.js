@@ -32,11 +32,10 @@ export default class ModalLogin extends Modal {
 
     this._enterButton = document.createElement("a");
     this._enterButton.className = "button check-data";
-    this._enterButton.href = "#!";
     this._enterButton.innerText = "Увійдіть";
     this._enterButton.addEventListener("click", (event) => {
+      event.preventDefault();
       this.loginRequest();
-     
     });
 
     this._orText = document.createElement("span");
@@ -82,7 +81,10 @@ export default class ModalLogin extends Modal {
       let response = await request;
 
       if (response.ok) {
-        return response.text();
+        let token = await request.text();
+        console.log("token", token);
+        localStorage.setItem("clinic-token", `${token}`);
+        console.log("storage", localStorage.getItem("clinic-token"));
       } else {
         throw "Перевірте правильність емейлу чи паролю або зареєструйтесь";
       }
