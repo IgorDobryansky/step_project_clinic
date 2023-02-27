@@ -11,6 +11,7 @@ export default class Login {
 
     this._logoutButton = document.createElement("button");
     this._logoutButton.innerText = "Вийти";
+    this._logoutButton.className = "button logout-button";
     this._logoutButton.addEventListener("click", (event) => {
       localStorage.removeItem("clinic-token");
       Login.loginStatus = false;

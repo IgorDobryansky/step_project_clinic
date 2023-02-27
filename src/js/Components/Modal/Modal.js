@@ -1,3 +1,5 @@
+// import backgroundImage from "../../../img/modal_login_bg.jpg";
+
 export default class Modal {
   constructor() {
     this._modalWrapper = document.createElement("div");
@@ -8,11 +10,14 @@ export default class Modal {
       if (!itsModal || itsClose) this._modalWrapper.remove();
     });
     this._modalWrapper.className = "modal-window-wrapper";
+
     this._modal = document.createElement("form");
     this._modal.className = "modal-window";
+
     this._closeButton = document.createElement("span");
     this._closeButton.innerHTML = "&#10005;";
-    this._closeButton.className = "modal-close-button"
+    this._closeButton.className = "modal-close-button";
+
     this._modal.append(this._closeButton);
     this._modalWrapper.append(this._modal);
   }
