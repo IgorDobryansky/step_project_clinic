@@ -6,6 +6,11 @@ import Login from "./Components/Login.js";
 import { getAllVisits, putVisit } from "./helpers/visitRequests.js";
 
 function app() {
+  // window.addEventListener('beforeunload', (event) => {
+    // event.preventDefault();
+    // event.returnValue = '';
+    // localStorage.removeItem('clinic-token')
+  // });
   const visitsBoard = document.getElementById("visits");
 
   const loginStatus = document.getElementById("login-status");
