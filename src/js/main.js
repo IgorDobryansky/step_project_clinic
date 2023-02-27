@@ -14,11 +14,10 @@ function app() {
   // event.returnValue = '';
   // localStorage.removeItem('clinic-token')
   // });
-  const visitsBoard = document.getElementById("visits");
 
   Login.isLogged();
 
-  visitsBoard.append(new Visit().render());
+  // visitsBoard.append(new Visit().render());
 
   //   getAllVisits().then((array) => console.log(array));
 }
