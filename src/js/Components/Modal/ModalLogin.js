@@ -6,9 +6,11 @@ export default class ModalLogin extends Modal {
     super();
     this._loginEmailFieldset = document.createElement("fieldset");
     this._loginEmailFieldset.className = "fieldset email-fieldset";
+
     this._loginEmailLabel = document.createElement("label");
     this._loginEmailLabel.className = "label email-label";
     this._loginEmailLabel.innerText = "Емейл";
+
     this._emailInput = document.createElement("input");
     this._emailInput.type = "email";
     this._emailInput.className = "input email-input";
@@ -22,10 +24,12 @@ export default class ModalLogin extends Modal {
 
     this._loginPasswordFieldset = document.createElement("fieldset");
     this._loginPasswordFieldset.className = "fieldset password-fieldset";
+
     this._loginPasswordLabel = document.createElement("label");
     this._loginPasswordLabel.className = "label password-label";
     this._loginPasswordLabel.for = "password";
     this._loginPasswordLabel.innerText = "Пароль";
+    
     this._passwordInput = document.createElement("input");
     this._passwordInput.type = "password";
     this._passwordInput.className = "input password-input";
@@ -48,7 +52,6 @@ export default class ModalLogin extends Modal {
     this._enterButton.innerText = "Увійдіть";
     this._enterButton.tabIndex = "0";
     this._enterButton.addEventListener("click", (event) => {
-      event.preventDefault();
       this.loginRequest();
     });
 
