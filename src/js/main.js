@@ -1,5 +1,11 @@
 import "../index.html";
 import "../styles/index.scss";
+// import logo from "../img/clinic_logo.png"
+// const image = document.createElement("img")
+// image.src = logo
+
+
+
 
 import Visit from "./prepare.js";
 import Login from "./Components/Login.js";
