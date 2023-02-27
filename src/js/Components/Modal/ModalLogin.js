@@ -10,10 +10,11 @@ export default class ModalLogin extends Modal {
     this._loginEmailLegend.className = "email-legend";
     this._loginEmailLegend.innerText = "Емейл";
     this._emailInput = document.createElement("input");
+    this._emailInput.name = "email";
     this._emailInput.addEventListener("input", () => {
       this._errorMessage.innerHTML = "";
     });
-    this._emailInput.type = "text";
+    this._emailInput.type = "email";
     this._emailInput.className = "email-input";
     this._loginEmailFieldset.append(this._loginEmailLegend, this._emailInput);
 
