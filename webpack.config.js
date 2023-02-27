@@ -13,6 +13,7 @@ module.exports = {
   target,
   devtool,
   devServer: {
+    static: path.resolve(__dirname, "public"),
     open: true,
     hot: true,
     port: 3000,
@@ -48,7 +49,7 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [require("postcss-preset-env")],
+                plugins: [require("autoprefixer")],
               },
             },
           },
