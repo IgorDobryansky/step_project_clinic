@@ -37,39 +37,39 @@
 
 // Структура класса Visit:
 
-export default class Visit {
-  constructor() {
-    this._visit = document.createElement("div");
-    this._visit.className = "visit-card";
-    this.visitPurpose = document.createElement("p");
-    this.visitPurpose.innerText = "Болить голова";
-    this.visitDescription = document.createElement("p");
-    this.visitDescription.innerText = "Дуже сильно болить голова";
+// export default class Visit {
+//   constructor() {
+//     this._visit = document.createElement("div");
+//     this._visit.className = "visit-card";
+//     this.visitPurpose = document.createElement("p");
+//     this.visitPurpose.innerText = "Болить голова";
+//     this.visitDescription = document.createElement("p");
+//     this.visitDescription.innerText = "Дуже сильно болить голова";
 
-    this.isUrgency = document.createElement("select");
-    this.urgencyNormal = document.createElement("option");
-    this.urgencyNormal.innerText = "Середня";
-    this.urgencyLow = document.createElement("option");
-    this.urgencyLow.innerText = "Низька";
-    this.urgencyHight = document.createElement("option");
-    this.urgencyHight.innerText = "Висока";
-    this.isUrgency.append(
-      this.urgencyLow,
-      this.urgencyNormal,
-      this.urgencyHight
-    );
+//     this.isUrgency = document.createElement("select");
+//     this.urgencyNormal = document.createElement("option");
+//     this.urgencyNormal.innerText = "Середня";
+//     this.urgencyLow = document.createElement("option");
+//     this.urgencyLow.innerText = "Низька";
+//     this.urgencyHight = document.createElement("option");
+//     this.urgencyHight.innerText = "Висока";
+//     this.isUrgency.append(
+//       this.urgencyLow,
+//       this.urgencyNormal,
+//       this.urgencyHight
+//     );
 
-    this.fullName = document.createElement("p");
-    this.fullName.innerText = "Ігор Добрянський"
-    this._visit.append(
-      this.visitPurpose,
-      this.visitDescription,
-      this.isUrgency,
-      this.fullName
-    );
-  }
+//     this.fullName = document.createElement("p");
+//     this.fullName.innerText = "Ігор Добрянський"
+//     this._visit.append(
+//       this.visitPurpose,
+//       this.visitDescription,
+//       this.isUrgency,
+//       this.fullName
+//     );
+//   }
 
-  render() {
-    return this._visit;
-  }
-}
+//   render() {
+//     return this._visit;
+//   }
+// }
