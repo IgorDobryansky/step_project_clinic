@@ -1,8 +1,7 @@
 .header {
   padding: 0 30px;
   height: 100px;
-  background-color: pink;
-  border-radius: 50px;
+  background-color:#c9e7de;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +12,7 @@
       width: 100%;
     }
   }
+
   #login-status {
     .logout-button {
       margin-left: 15px;

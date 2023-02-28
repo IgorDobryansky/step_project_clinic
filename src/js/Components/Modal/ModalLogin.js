@@ -5,7 +5,7 @@ export default class ModalLogin extends Modal {
   constructor() {
     super();
     this._loginEmailFieldset = document.createElement("fieldset");
-    this._loginEmailFieldset.className = "fieldset email-fieldset";
+    this._loginEmailFieldset.className = "login-fieldset email-fieldset";
 
     this._loginEmailLabel = document.createElement("label");
     this._loginEmailLabel.className = "label email-label";
@@ -23,7 +23,7 @@ export default class ModalLogin extends Modal {
     this._loginEmailFieldset.append(this._emailInput, this._loginEmailLabel);
 
     this._loginPasswordFieldset = document.createElement("fieldset");
-    this._loginPasswordFieldset.className = "fieldset password-fieldset";
+    this._loginPasswordFieldset.className = "login-fieldset password-fieldset";
 
     this._loginPasswordLabel = document.createElement("label");
     this._loginPasswordLabel.className = "label password-label";
@@ -116,7 +116,5 @@ export default class ModalLogin extends Modal {
     }
   }
 
-  render() {
-    document.body.append(this._modalWrapper);
-  }
+  
 }

@@ -1,4 +1,5 @@
 import ModalLogin from "../Modal/ModalLogin.js";
+import ModalCreateVisit from "../Modal/ModalCreateVisit.js";
 
 export default class Login {
   constructor() {
@@ -22,6 +23,7 @@ export default class Login {
     this._createVisit.innerText = "Створити візит";
     this._createVisit.addEventListener("click", (event) => {
       event.preventDefault();
+      new ModalCreateVisit().render()
     });
   }
 
