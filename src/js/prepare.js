@@ -37,17 +37,25 @@
 
 // Структура класса Visit:
 
+
 //export default 
 // class Visit {
 //   constructor(des,) {
+
+// export default class Visit {
+//   constructor() {
+
 //     this._visit = document.createElement("div");
 //     this._visit.className = "visit-card";
 //     this.visitPurpose = document.createElement("p");
 //     this.visitPurpose.innerText = "Болить голова";
 //     this.visitDescription = document.createElement("p");
 //     this.visitDescription.innerText = "Дуже сильно болить голова";
+
 //     this._elVisitDescrP = document.createElement("p");
 //     this.visit2Description = "Babah"
+
+
 
 //     this.isUrgency = document.createElement("select");
 //     this.urgencyNormal = document.createElement("option");
@@ -71,6 +79,7 @@
 //       this.fullName
 //     );
 //   }
+
 
   
 //   render() {
@@ -331,3 +340,9 @@ nazarenko.renderVisit()
 
 let ivanov = new VisitDentist("Іванов Іван Івановіч", "Стоматолог", "05.12.2021")
 ivanov.renderVisit() 
+
+//   render() {
+//     return this._visit;
+//   }
+// }
+
