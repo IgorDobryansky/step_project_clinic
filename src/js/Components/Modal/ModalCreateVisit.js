@@ -1,4 +1,5 @@
 import Modal from "./Modal.js";
+import { postVisit } from "../../helpers/visitRequests.js";
 
 export default class ModalCreateVisit extends Modal {
   constructor() {
@@ -11,16 +12,16 @@ export default class ModalCreateVisit extends Modal {
     this._doctorSelectLegend = document.createElement("legend");
     this._doctorSelectLegend.innerText = "Оберіть лікаря";
     this._doctorSelect = document.createElement("select");
+    this._doctorSelect.name = "doctor";
     this._doctorSelectFieldset.append(
       this._doctorSelectLegend,
       this._doctorSelect
     );
     this._doctorSelect.addEventListener("input", (event) => {
       const selectValue = this._doctorSelect.value;
+      this._visitFormFields.innerHTML = "";
       if (selectValue === "Терапевт") {
-        console.log(selectValue);
-        this._visitForm.innerHTML = "";
-        this._visitForm.append(
+        this._visitFormFields.append(
           this._visitPurposeFieldset,
           this._visitDescriptionFieldset,
           this._urgencySelectFieldset,
@@ -28,8 +29,7 @@ export default class ModalCreateVisit extends Modal {
           this._ageFieldset
         );
       } else if (selectValue === "Стоматолог") {
-        this._visitForm.innerHTML = "";
-        this._visitForm.append(
+        this._visitFormFields.append(
           this._visitPurposeFieldset,
           this._visitDescriptionFieldset,
           this._urgencySelectFieldset,
@@ -37,8 +37,7 @@ export default class ModalCreateVisit extends Modal {
           this._lastVisitDateFieldset
         );
       } else {
-        this._visitForm.innerHTML = "";
-        this._visitForm.append(
+        this._visitFormFields.append(
           this._visitPurposeFieldset,
           this._visitDescriptionFieldset,
           this._urgencySelectFieldset,
@@ -49,13 +48,17 @@ export default class ModalCreateVisit extends Modal {
           this._ageFieldset
         );
       }
-      !this._modal.contains(this._createVisitButton)
-        ? this._modal.append(this._createVisitButton)
+      !this._visitForm.contains(this._createVisitButton)
+        ? this._visitForm.append(this._createVisitButton)
         : "";
     });
 
+    this._visitFormFields = document.createElement("div");
+    this._visitFormFields.className = "visit-form-fields";
+
     this._visitForm = document.createElement("form");
     this._visitForm.className = "form visit-form";
+    this._visitForm.name = "visitFields";
 
     this._optionDoctorEmpty = document.createElement("option");
     this._optionDoctorEmpty.innerText = "...";
@@ -79,6 +82,10 @@ export default class ModalCreateVisit extends Modal {
     this._visitPurposeLegend = document.createElement("legend");
     this._visitPurposeLegend.innerText = "Мета візиту";
     this._visitPurpose = document.createElement("input");
+    this._visitPurpose.name = "title";
+    this._visitPurpose.title = "Вкажіть мету візиту. Мінімум 10 символів.";
+    this._visitPurpose.pattern = ".{10,}";
+    this._visitPurpose.required = true;
     this._visitPurposeFieldset.append(
       this._visitPurposeLegend,
       this._visitPurpose
@@ -89,6 +96,9 @@ export default class ModalCreateVisit extends Modal {
     this._visitDescriptionLegend = document.createElement("legend");
     this._visitDescriptionLegend.innerText = "Опис візиту";
     this._description = document.createElement("textarea");
+    this._description.name = "description";
+    this._description.maxLength = "50";
+    this._description.required = true;
     this._visitDescriptionFieldset.append(
       this._visitDescriptionLegend,
       this._description
@@ -99,6 +109,7 @@ export default class ModalCreateVisit extends Modal {
     this._urgencySelectLegend = document.createElement("legend");
     this._urgencySelectLegend.innerText = "Терміновість";
     this._urgencySelect = document.createElement("select");
+    this._urgencySelect.name = "urgency";
     this._urgencySelectEmpty = document.createElement("option");
     this._urgencySelectEmpty.innerText = "...";
     this._urgencySelectEmpty.disabled = true;
@@ -125,6 +136,7 @@ export default class ModalCreateVisit extends Modal {
     this._ageLegend = document.createElement("legend");
     this._ageLegend.innerText = "Вік";
     this._age = document.createElement("input");
+    this._age.name = "age";
     this._ageFieldset.append(this._ageLegend, this._age);
 
     this._lastVisitDateFieldset = document.createElement("fieldset");
@@ -132,6 +144,7 @@ export default class ModalCreateVisit extends Modal {
     this._lastVisitDateLegend = document.createElement("legend");
     this._lastVisitDateLegend.innerText = "Дата останнього візиту";
     this._lastVisitDate = document.createElement("input");
+    this._lastVisitDate.name = "lastVisitDate";
     this._lastVisitDate.type = "date";
     this._lastVisitDate.addEventListener("input", (event) => {
       console.log(this._lastVisitDate.value);
@@ -146,6 +159,7 @@ export default class ModalCreateVisit extends Modal {
     this._fullNameInputLegend = document.createElement("legend");
     this._fullNameInputLegend.innerText = "Прізвище Ім'я По-батькові";
     this._fullNameInput = document.createElement("input");
+    this._fullNameInput.name = "fullName";
     this._fullNameInputFieldset.append(
       this._fullNameInputLegend,
       this._fullNameInput
@@ -156,9 +170,11 @@ export default class ModalCreateVisit extends Modal {
     this._bodyPressureLegend = document.createElement("legend");
     this._bodyPressureLegend.innerText = "Артеріальний тиск";
     this._bodyPressureUpper = document.createElement("input");
+    this._bodyPressureUpper.name = "bpUpper";
     this._delimiter = document.createElement("span");
     this._delimiter.innerText = "/";
     this._bodyPressureLower = document.createElement("input");
+    this._bodyPressureLower.name = "bpLower";
     this._bodyPressureFieldset.append(
       this._bodyPressureLegend,
       this._bodyPressureUpper,
@@ -171,6 +187,7 @@ export default class ModalCreateVisit extends Modal {
     this._bodyIndexLegend = document.createElement("legend");
     this._bodyIndexLegend.innerText = "Індекс маси тіла";
     this._bodyIndex = document.createElement("input");
+    this._bodyIndex.name = "bodyIndex";
     this._bodyIndexFieldset.append(this._bodyIndexLegend, this._bodyIndex);
 
     this._diseasesFieldset = document.createElement("fieldset");
@@ -178,6 +195,7 @@ export default class ModalCreateVisit extends Modal {
     this._diseasesLegend = document.createElement("legend");
     this._diseasesLegend.innerText = "Перенесені захворювання";
     this._diseases = document.createElement("textarea");
+    this._diseases.name = "diseases";
     this._diseasesFieldset.append(this._diseasesLegend, this._diseases);
 
     this._createVisitButton = document.createElement("button");
@@ -185,13 +203,21 @@ export default class ModalCreateVisit extends Modal {
     this._createVisitButton.innerText = "Створити";
     this._createVisitButton.addEventListener("click", (event) => {
       event.preventDefault();
+      const createVisitObject = Object.fromEntries(
+        new FormData(this._visitForm)
+      );
+      console.log(createVisitObject);
+      this._createVisitButton.disabled = true;
+      postVisit(createVisitObject).then((response) => {
+        this._createVisitButton.disabled = false;
+        console.log("response", response);
+      });
     });
 
-    this._modal.append(
-      this._createVisitHeader,
-      this._doctorSelectFieldset,
-      this._visitForm,
-      Boolean(this._visitForm.innerHTML) ? this._createVisitButton : ""
-    );
+    this._visitForm.append(this._doctorSelectFieldset, this._visitFormFields);
+
+    this._modal.append(this._createVisitHeader, this._visitForm);
   }
+
+ 
 }

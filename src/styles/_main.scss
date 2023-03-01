@@ -5,12 +5,12 @@
   //opacity: 0.3;
   //height: 50%;
   width: 100%;
-  margin: 0 auto;
+  min-height: 80%;
   background-image: url(../img/v870-mynt-20.jpg);
   .search-bar {
     width: 100%;
-    padding: 20px;
-    //border: 1px solid black;
+    height: 100px;
+    padding: 10px;
     background-color: #9cd0d4;
     display: flex;
     justify-content: flex-end;
@@ -48,9 +48,10 @@
   .visits {
     //margin-top: 10px;
     //border: 1px solid black;
-    
+    overflow: hidden;
     background-size: auto;
     padding: 50px;
+    height: 100%;
     .visit-card {
       padding: 20px;
       border: 1px solid black;

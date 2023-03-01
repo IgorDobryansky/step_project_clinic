@@ -23,6 +23,6 @@ export default class Modal {
   
 
   render() {
-    document.body.append(this._modalWrapper);
+    document.body.prepend(this._modalWrapper);
   }
 }
