@@ -16,7 +16,7 @@ module.exports = {
     static: path.resolve(__dirname, "public"),
     open: true,
     hot: true,
-    port: 3000,
+    port: 8080,
   },
   entry: path.resolve(__dirname, "src/js", "main.js"),
   output: {

@@ -1,12 +1,13 @@
 .modal-window-wrapper {
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 10px;
   backdrop-filter: blur(6px);
   @include font-family-Roboto-400-italic;
   .modal-window {
@@ -118,55 +119,45 @@
         text-decoration: underline;
       }
     }
-    
-    .doctor-fieldset{
-      border: 1px solid black;
-      margin-top: 10px;
-      padding: 10px;
-      width: 100%;
-      legend{
-        margin-left: 10px;
-      }
-      select{
-        width: 100%;
-      }
-    }
-    .visit-form{
-      margin-top: 10px;
+
+    .visit-form {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
-      select{
+      .visit-form-fields{
         width: 100%;
       }
-      .fieldset{
+      select {
+        width: 100%;
+      }
+      fieldset {
         width: 100%;
         border: 1px solid black;
         margin-top: 20px;
         padding: 10px;
-        legend{
+        legend {
           margin-left: 10px;
         }
-        textarea{
+        textarea {
           width: 100%;
           max-width: 298px;
-          max-height: 60px;
+          height:60px;
+        }
+        input {
+          width: 100%;
         }
       }
-      .presure-fieldset{
+      .presure-fieldset {
         display: flex;
-        input{
+        input {
           text-align: center;
           width: 40px;
         }
       }
-      input{
-        width: 100%;
+      .create-visit {
+        margin-top: 20px;
       }
-    }
-    .create-visit{
-      margin-top: 20px;
     }
   }
 }
