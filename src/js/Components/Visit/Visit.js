@@ -1,6 +1,7 @@
 export default class Visit {
   constructor(responseObject) {
     this._visitDiv = document.createElement("div");
+    this._visitDiv.className = "visit-container"
     this._fullName = document.createElement("p");
     this._fullName.innerText = responseObject.fullName;
     this._doctor = document.createElement("p");

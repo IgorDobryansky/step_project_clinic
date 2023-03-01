@@ -13,24 +13,15 @@ const image = document.createElement("img");
 //image.src = logo
 
 import Login from "./Components/Login/Login.js";
-import { getAllVisits, putVisit, getVisit, renderAllVisits } from "./helpers/visitRequests.js";
+import {
+  getAllVisits,
+  putVisit,
+  getVisit,
+  renderAllVisits,
+} from "./helpers/visitRequests.js";
 
 function app() {
-  Login.isLogged();
-
- 
-
-// getAllVisits().then(response=>{
-//   document.getElementById("visits").innerHTML = "";
-//   console.log(response);
-//   response.map((res) => {
-//     console.log(res);
-//     if (res.doctor === "Терапевт") new VisitTherapist(res).render();
-//     else if (res.doctor === "Стоматолог") new VisitDentist(res).render();
-    // else if (res.doctor === "Кардіолог") new VisitCardiologist(res).render();
-//   });
-// })
-
+  !Login.loginStatus && Login.isLogged();
 }
 
 app();
