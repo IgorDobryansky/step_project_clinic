@@ -19,7 +19,7 @@ function app() {
   Login.isLogged();
 
  
-renderAllVisits()
+
 // getAllVisits().then(response=>{
 //   document.getElementById("visits").innerHTML = "";
 //   console.log(response);
