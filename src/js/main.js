@@ -3,7 +3,7 @@ import "../styles/index.scss";
 // import logo from "../img/clinic_logo.png"
 // const image = document.createElement("img")
 // image.src = logo
-
+import Visit from "./Components/Visit/Visit.js";
 import VisitCardiologist from "./Components/Visit/VisitCardiologist.js";
 import VisitDentist from "./Components/Visit/VisitDentist.js";
 import VisitTherapist from "./Components/Visit/VisitTherapist.js";
@@ -13,46 +13,20 @@ const image = document.createElement("img");
 //image.src = logo
 
 import Login from "./Components/Login/Login.js";
-import { getAllVisits, putVisit } from "./helpers/visitRequests.js";
+import { getAllVisits, putVisit, getVisit } from "./helpers/visitRequests.js";
 
 function app() {
-
-
   Login.isLogged();
 
+ 
 
+getAllVisits().then(response=>{
+  response.map(res=>{
+    new Visit(res).render()
+  })
+})
 
-  let polyanskaya = new VisitTherapist(
-    "Полянська Олена Михайлівна",
-    "Терапевт",
-    23
-  );
-  polyanskaya.renderVisit();
-
-  
-  let dobryanskyi = new VisitDentist(
-    "Добрянский Ігор Батьковіч",
-    "Стоматолог",
-    "10.09.2022"
-  );
-  dobryanskyi.renderVisit();
-  
-  let nazarenko = new VisitCardiologist(
-    "Назаренко Віктор Вікторовіч",
-    "Кардіолог",
-    "120/80",
-    "8,5",
-    "Не було",
-    39
-  );
-  nazarenko.renderVisit();
-  
-  let ivanov = new VisitDentist(
-    "Іванов Іван Івановіч",
-    "Стоматолог",
-    "05.12.2021"
-  );
-  ivanov.renderVisit();
+  // new Visit(visit).render()
 }
 
 app();
