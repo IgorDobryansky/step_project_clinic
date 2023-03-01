@@ -1,5 +1,8 @@
 import Modal from "./Modal.js";
+import { getAllVisits, renderAllVisits } from "../../helpers/visitRequests.js";
 import { postVisit } from "../../helpers/visitRequests.js";
+import VisitDentist from "../Visit/VisitDentist.js";
+import VisitTherapist from "../Visit/VisitDentist.js";
 
 export default class ModalCreateVisit extends Modal {
   constructor() {
@@ -146,9 +149,6 @@ export default class ModalCreateVisit extends Modal {
     this._lastVisitDate = document.createElement("input");
     this._lastVisitDate.name = "lastVisitDate";
     this._lastVisitDate.type = "date";
-    this._lastVisitDate.addEventListener("input", (event) => {
-      console.log(this._lastVisitDate.value);
-    });
     this._lastVisitDateFieldset.append(
       this._lastVisitDateLegend,
       this._lastVisitDate
@@ -206,11 +206,11 @@ export default class ModalCreateVisit extends Modal {
       const createVisitObject = Object.fromEntries(
         new FormData(this._visitForm)
       );
-      console.log(createVisitObject);
       this._createVisitButton.disabled = true;
       postVisit(createVisitObject).then((response) => {
         this._createVisitButton.disabled = false;
-        console.log("response", response);
+        this._modalWrapper.remove();
+        renderAllVisits();
       });
     });
 
@@ -218,6 +218,4 @@ export default class ModalCreateVisit extends Modal {
 
     this._modal.append(this._createVisitHeader, this._visitForm);
   }
-
- 
 }
