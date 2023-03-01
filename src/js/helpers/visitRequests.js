@@ -52,6 +52,20 @@ export async function deleteVisit(visitId) {
   );
 }
 
+export async function deleteAllVisit() {
+  let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
+    },
+  });
+
+  let response = await request.json();
+  response.map((res) => {
+    deleteVisit(res.id);
+  });
+}
+
 export async function getAllVisits() {
   let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
     method: "GET",

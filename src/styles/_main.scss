@@ -28,7 +28,7 @@
       }
     }
   }
-
+  
   .search-bar_input {
     margin-right: 10px;
     height: 30px;
@@ -36,7 +36,7 @@
     width: 300px;
     padding: 5px 10px;
   }
-
+  
   .search-bar_select {
     margin-right: 10px;
     height: 30px;
@@ -44,7 +44,7 @@
     width: 120px;
     padding: 5px 10px;
   }
-
+  
   .visits {
     //margin-top: 10px;
     //border: 1px solid black;
@@ -52,6 +52,9 @@
     background-size: auto;
     padding: 50px;
     height: 100%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
     .visit-card {
       padding: 20px;
       border: 1px solid black;
