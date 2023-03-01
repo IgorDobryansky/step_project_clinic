@@ -13,18 +13,10 @@ const image = document.createElement("img");
 //image.src = logo
 
 import Login from "./Components/Login/Login.js";
-import { getAllVisits, putVisit, getVisit } from "./helpers/visitRequests.js";
+import { getAllVisits, putVisit, getVisit, renderAllVisits } from "./helpers/visitRequests.js";
 
 function app() {
   Login.isLogged();
-
- 
-
-getAllVisits().then(response=>{
-  response.map(res=>{
-    new Visit(res).render()
-  })
-})
 
 }
 
