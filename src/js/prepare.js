@@ -186,7 +186,11 @@ hideInfo(){
 
 }
 
-
+class Modal extends Visit2 {
+  constructor(doctor, fullName){
+    s
+  }
+}
 
 class VisitTherapist extends Visit2 {
   constructor (fullName, doctor, age) {
