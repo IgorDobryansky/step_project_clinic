@@ -1,5 +1,6 @@
 import ModalLogin from "../Modal/ModalLogin.js";
 import ModalCreateVisit from "../Modal/ModalCreateVisit.js";
+import { renderAllVisits } from "../../helpers/visitRequests.js";
 
 export default class Login {
   constructor() {
@@ -17,13 +18,14 @@ export default class Login {
       localStorage.removeItem("clinic-token");
       Login.loginStatus = false;
       new Login().render();
+      document.getElementById("visits").innerHTML = "";
     });
 
     this._createVisit = document.createElement("button");
     this._createVisit.innerText = "Створити візит";
     this._createVisit.addEventListener("click", (event) => {
       event.preventDefault();
-      new ModalCreateVisit().render()
+      new ModalCreateVisit().render();
     });
   }
 
@@ -40,9 +42,12 @@ export default class Login {
     if (localStorage.getItem("clinic-token")) {
       Login.loginStatus = true;
       loginButtons.append(this._createVisit, this._logoutButton);
+      renderAllVisits()
+      return true;
     } else {
       Login.loginStatus = false;
       loginButtons.append(this._loginButton);
+      return false;
     }
   }
 
