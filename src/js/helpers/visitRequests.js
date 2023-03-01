@@ -1,6 +1,6 @@
-import VisitCardiologist from "../Components/Visit/VisitCardiologist";
-import VisitDentist from "../Components/Visit/VisitDentist";
-import VisitTherapist from "../Components/Visit/VisitTherapist";
+import VisitCardiologist from "../Components/Visit/VisitCardiologist.js";
+import VisitDentist from "../Components/Visit/VisitDentist.js";
+import VisitTherapist from "../Components/Visit/VisitTherapist.js";
 
 export async function postVisit(visitObject) {
   let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
@@ -62,12 +62,25 @@ export async function getAllVisits() {
 
   let response = await request.json();
 
-  response.map((res) => {
+  return response;
+}
+
+export async function renderAllVisits() {
+  let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
+    },
+  });
+
+  let response = await request.json();
+
+  document.getElementById("visits").innerHTML = "";
+  await response.map((res) => {
     if (res.doctor === "Терапевт") new VisitTherapist(res).render();
     else if (res.doctor === "Стоматолог") new VisitDentist(res).render();
-    // else if (res.doctor === "Кардіолог") new VisitCardiologist(res).render();
+    else if (res.doctor === "Кардіолог") new VisitCardiologist(res).render();
   });
-  return response;
 }
 
 export async function getVisit(visitId) {
