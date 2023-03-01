@@ -1,5 +1,23 @@
-@mixin flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+@mixin font-family-Roboto-400-normal {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin font-family-Roboto-400-italic {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@mixin font-family-Roboto-700-normal {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin font-family-Roboto-700-italic {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: italic;
 }

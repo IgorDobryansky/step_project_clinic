@@ -1,0 +1,21 @@
+.header {
+  padding: 0 30px;
+  height: 100px;
+  background-color:#c9e7de;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo-wrapper {
+    width: 70px;
+    height: 70px;
+    .logo-image {
+      width: 100%;
+    }
+  }
+
+  #login-status {
+    .logout-button {
+      margin-left: 15px;
+    }
+  }
+}
