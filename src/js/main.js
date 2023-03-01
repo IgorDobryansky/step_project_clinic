@@ -48,7 +48,7 @@ function app() {
   nazarenko.renderVisit();
   
   let ivanov = new VisitDentist(
-    "Іванов Іван Івановіч",
+    "ААААванов Іван Івановіч",
     "Стоматолог",
     "05.12.2021"
   );

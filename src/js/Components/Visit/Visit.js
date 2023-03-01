@@ -46,11 +46,11 @@ export default class Visit {
     let visit = this;
     visitId.style.display = "none";
 
-    this.buttonDiv.addEventListener("click", visit.showInfo);
+    this.buttonDiv.addEventListener("click", visit.showInfo());
 
-    this.buttonDiv2.addEventListener("click", visit.hideInfo);
+    this.buttonDiv2.addEventListener("click", visit.hideInfo());
 
-    this.buttonDiv3.addEventListener("click", visit.hideInfo);
+    this.buttonDiv3.addEventListener("click", visit.hideInfo());
   }
 
   showInfo() {
