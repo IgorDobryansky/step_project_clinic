@@ -4,8 +4,6 @@ export default class VisitDentist extends Visit {
   constructor(responseObject) {
     super(responseObject);
     this.lastVisit = responseObject.lastVisitDate;
-    //this.lastVisitDate.innerText = responseObject.lastVisitDate;
-    //this._hidenFields.append(this.lastVisitDate);
   }
 
   get lastVisit(){
@@ -25,10 +23,6 @@ export default class VisitDentist extends Visit {
     this.visitAdd.append(this._elLastVisit); 
     this.visitAdd.append(this.buttonHide);
     this.visitAdd.append(this.buttonEdit); 
-    // this.visitAdd.append(this.buttonStatus); 
-    //this._visitParentlement.append(this._visitDiv);
   }
 }
 
-// let dobryanskyi = new VisitDentist("Добрянский Ігор Батьковіч", "Стоматолог", "10.09.2022");
-// dobryanskyi.render() 

@@ -1,8 +1,5 @@
 import ModalCreateVisit from "../Modal/ModalEditVisit";
 
-let editor 
-//= new ModalCreateVisit(responseObject);
-
 export default class Visit {
   constructor(responseObject) {
     this._visitDiv = document.createElement("div");
@@ -37,7 +34,6 @@ export default class Visit {
     this.visit = document.createElement("div");
     this.visitTitle = document.createElement("div");
     this.visitTitlePart1 = document.createElement("div");
-    //this.buttonsBlock = document.createElement("div");
     this.buttonShow = document.createElement("button");
     this.buttonHide = document.createElement("button");
     this.buttonEdit = document.createElement("button");
@@ -49,8 +45,6 @@ export default class Visit {
     this.visitTitle.className="visitTitle";
     this.visitTitlePart1.className="visit_title1";
     this.visitAdd.className="visit_addinfo";
-    //this.visitAddTitle.className="visit_addinfotitle";
-    //this.buttonsBlock.className="button_wrapper";
     this.buttonShow.className = "button_show";
     this.buttonEdit.className = "button_edit";
     this.logoDone.className = "logo_done";
@@ -67,8 +61,6 @@ export default class Visit {
     this.visitTitlePart1.append(this._elFullName);  
     this.visitTitlePart1.append(this._elDoctor);  
     this.visitTitle.append(this.logoDone);  
-    //this.visit.append(this._elDoctor);  
-    //this.visit.append(this.buttonsBlock);  
     this.visit.append(this.visitAdd);
     this.visit.append(this.buttonShow);    
     this.visitAdd.append(this.visitAddTitle);
@@ -94,9 +86,6 @@ export default class Visit {
     }) 
   
     this.buttonEdit.addEventListener("click", (event)=> console.log(editor = new ModalCreateVisit(responseObject)))
-    // function(){
-    //   editor = new ModalCreateVisit(responseObject); 
-    // })
     
   }
    
@@ -176,58 +165,4 @@ export default class Visit {
   
   }  
 
-  //export default class VisitDentist extends Visit {
-    //   constructor(responseObject) {
-    //     super(responseObject);
-    //     this.lastVisitDate = responseObject.lastVisitDate;
-    //     //this.lastVisitDate.innerText = responseObject.lastVisitDate;
-    //     //this._hidenFields.append(this.lastVisitDate);
-    //   }
-    
-    //   get lastVisitDate(){
-    //     return this._lastVisitDate
-    //   }
-    
-    //   set lastVisitDate(value) {
-    //     if (!this._elLastVisitDate) {
-    //       this._elLastVisitDate = document.createElement('p');
-    //     }
-    //     this._elLastVisitDate.innerText = `Дата останнього відвідування: ${value};`;
-    //     this._lastVisitDate = value;
-    //   }
-    
-    //   render(){
-    //     this.renderVisitBase();
-    //     this.visitAdd.append(this._elLastVisitDate);  
-    //     this.visitAdd.append(this.buttonHide);
-    //     this.visitAdd.append(this.buttonEdit);
-    //   }
-    // }
-
-
-
-
-  //   this._visitDiv = document.createElement("div");
-  //   this._fullName = document.createElement("p");
-  //   this._fullName.innerText = responseObject.fullName;
-  //   this._doctor = document.createElement("p");
-  //   this._doctor.innerText = responseObject.doctor;
-  //   this._showMoreButton = document.createElement("button");
-  //   this._showMoreButton.innerText = "Показати більше";
-  //   this._hidenFields = document.createElement("div");
-  //   this._description = document.createElement("p");
-  //   this._description.innerText = responseObject.description;
-  //   this._urgency = document.createElement("p");
-  //   this._urgency.innerText = responseObject.urgency;
-  //   this._visitDiv.append(
-  //     this._fullName,
-  //     this._doctor,
-  //     this._showMoreButton,
-  //     this._hidenFields
-  //   );
-  //   this._hidenFields.append(this._description, this._urgency);
-  //   this._visitCard = document.getElementById("visits");
-  // //}
-
- 
-//}
+  
