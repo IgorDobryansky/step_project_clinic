@@ -85,7 +85,11 @@
 
 
 
-
+class Modal extends Visit2 {
+  constructor(doctor, fullName){
+    s
+  }
+}
 
 
 

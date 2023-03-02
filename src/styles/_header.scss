@@ -1,7 +1,8 @@
 .header {
-  padding: 0 30px;
-  height: 10%;
-  background-color:#c9e7de;
+  padding: 0 60px;
+  height: 13%;
+  //background-color:#c9e7de;
+  background-color:#e8f3ed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,6 +17,11 @@
   #login-status {
     .logout-button {
       margin-left: 15px;
+      @include buttons;
+    }
+
+    button {
+      @include buttons;
     }
   }
 }
