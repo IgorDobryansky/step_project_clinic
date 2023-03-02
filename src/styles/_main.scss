@@ -45,17 +45,22 @@
     padding: 5px 10px;
   }
 
-  .visits {
+  #visits-wrapper {
     //margin-top: 10px;
     //border: 1px solid black;
     overflow: hidden;
     background-size: auto;
     padding: 50px;
     height: 100%;
-    .visit-card {
-      padding: 20px;
-      border: 1px solid black;
-      width: 15%;
+    display: flex;
+    justify-content: center;
+    // .visit-card {
+    //   padding: 20px;
+    //   border: 1px solid black;
+    //   width: 15%;
+    // }
+    .visits {
+      width: 70%;
     }
     .visitDiv {
       padding: 20px;
@@ -67,18 +72,37 @@
       background-color: aliceblue;
       font-family: "Courier New", Courier, monospace;
       font-size: 20px;
+     
+    }
+
+    .visitTitle {
+      display: flex;
+      justify-content: space-between;
+      @include font-family-Roboto-700-italic;
+      
+    }
+
+    // .visit_addinfotitle {
+    //   text-decoration: underline;
+    // }
+
+    .visit_addtitle {
+      margin-bottom: 5px;
+      text-decoration: underline;
+      @include font-family-Roboto-400-italic;
     }
 
     button {
-      background: #9cd0d4;
-      color: #fff; /* Белый цвет текста */
-      border-radius: 15px;
-      border: 1px solid #64bcc2;
+      // background: #9cd0d4;
+      // color: #fff; /* Белый цвет текста */
+      // border-radius: 15px;
+      // border: 1px solid #64bcc2;
 
-      padding: 1rem 1.5rem; /* Поля вокруг текста */
-      //margin-top: 20px;
-      font-family: "Courier New", Courier, monospace;
-      font-size: 17px;
+      // padding: 1rem 1.5rem; /* Поля вокруг текста */
+      // //margin-top: 20px;
+      // font-family: "Courier New", Courier, monospace;
+      // font-size: 17px;
+      @include buttons;
     }
 
     .button_wrapper {
@@ -88,24 +112,18 @@
       justify-content: space-between;
     }
 
-    .button3 {
+    .button_edit {
       margin-left: 20px;
-      background: #9cd0d4;
-      color: #fff; /* Белый цвет текста */
-      border-radius: 15px;
-      border: 1px solid #64bcc2;
-
-      padding: 1rem 1.5rem; /* Поля вокруг текста */
+      @include buttons;
       margin-top: 20px;
-      font-family: "Courier New", Courier, monospace;
-      font-size: 17px;
+   
     }
 
     .logo_done {
       background-image: url(../img/iconDone.svg);
       background-size: cover;
       background-repeat: no-repeat;
-      height: 55px;
+      height: 52px;
       width: 60px;
     }
 
