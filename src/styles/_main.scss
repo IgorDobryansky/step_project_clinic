@@ -1,5 +1,4 @@
 .main {
-
   background-size: cover;
   width: 100%;
   min-height: 80%;
@@ -61,7 +60,7 @@
       margin: 10px 0;
       background-color: aliceblue;
       font-family: "Courier New", Courier, monospace;
-      font-size: 20px; 
+      font-size: 20px;
     }
 
     gap: 15px;
@@ -71,7 +70,7 @@
       border: 1px solid black;
       width: 15%;
       justify-content: center;
-   
+
       .visits {
         width: 70%;
       }
@@ -87,23 +86,12 @@
         font-size: 20px;
       }
 
-
       .visitTitle {
         display: flex;
         justify-content: space-between;
         @include font-family-Roboto-700-italic;
       }
 
-
-    .visit_addtitle {
-      margin-bottom: 5px;
-      text-decoration: underline;
-      @include font-family-Roboto-400-italic;
-    }
-
-    button {
-      @include buttons;
-    }
       .visit_addtitle {
         margin-bottom: 5px;
         text-decoration: underline;
@@ -111,10 +99,17 @@
       }
 
       button {
-      
         @include buttons;
       }
+      .visit_addtitle {
+        margin-bottom: 5px;
+        text-decoration: underline;
+        @include font-family-Roboto-400-italic;
+      }
 
+      button {
+        @include buttons;
+      }
 
       .button_wrapper {
         display: flex;
@@ -146,10 +141,10 @@
         font-size: 21px;
         font-weight: bold;
       }
-    h2 {
-      font-size: 18px;
-      font-weight: bold;
-
+      h2 {
+        font-size: 18px;
+        font-weight: bold;
+      }
     }
   }
 }
