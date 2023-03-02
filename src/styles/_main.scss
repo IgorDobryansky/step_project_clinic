@@ -1,9 +1,6 @@
 .main {
-  //margin-top: 15px;
 
   background-size: cover;
-  //opacity: 0.3;
-  //height: 50%;
   width: 100%;
   min-height: 80%;
   background-image: url(../img/v870-mynt-20.jpg);
@@ -19,7 +16,6 @@
       display: flex;
       justify-content: flex-end;
       width: 45%;
-      //border: 1px solid black;
       padding: 10px;
       legend {
         margin-left: 10px;
@@ -46,19 +42,12 @@
   }
 
   #visits-wrapper {
-    //margin-top: 10px;
-    //border: 1px solid black;
     overflow: hidden;
     background-size: auto;
     padding: 50px;
     height: 100%;
     display: flex;
     justify-content: center;
-    // .visit-card {
-    //   padding: 20px;
-    //   border: 1px solid black;
-    //   width: 15%;
-    // }
     .visits {
       width: 70%;
     }
@@ -71,8 +60,7 @@
       margin: 10px 0;
       background-color: aliceblue;
       font-family: "Courier New", Courier, monospace;
-      font-size: 20px;
-     
+      font-size: 20px; 
     }
 
     .visitTitle {
@@ -82,10 +70,6 @@
       
     }
 
-    // .visit_addinfotitle {
-    //   text-decoration: underline;
-    // }
-
     .visit_addtitle {
       margin-bottom: 5px;
       text-decoration: underline;
@@ -93,15 +77,6 @@
     }
 
     button {
-      // background: #9cd0d4;
-      // color: #fff; /* Белый цвет текста */
-      // border-radius: 15px;
-      // border: 1px solid #64bcc2;
-
-      // padding: 1rem 1.5rem; /* Поля вокруг текста */
-      // //margin-top: 20px;
-      // font-family: "Courier New", Courier, monospace;
-      // font-size: 17px;
       @include buttons;
     }
 
@@ -139,7 +114,6 @@
 
     h2 {
       font-size: 18px;
-      //text-decoration-line: underline;
       font-weight: bold;
     }
   }

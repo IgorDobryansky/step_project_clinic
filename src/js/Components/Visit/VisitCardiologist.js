@@ -79,7 +79,3 @@ export default class VisitCardiologist extends Visit {
   }
 
 }
-
-// let nazarenko = new VisitCardiologist("Назаренко Віктор Вікторовіч", "Кардіолог", "120/80", "8,5", "Не було", 39)
-//   nazarenko.render() 
-  
