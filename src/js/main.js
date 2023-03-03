@@ -7,6 +7,7 @@ import Visit from "./Components/Visit/Visit.js";
 import VisitCardiologist from "./Components/Visit/VisitCardiologist.js";
 import VisitDentist from "./Components/Visit/VisitDentist.js";
 import VisitTherapist from "./Components/Visit/VisitTherapist.js";
+import searchInput from "./Components/Search/searchInput.js";
 
 import logo from "../img/daily-health-app (1).png";
 const image = document.createElement("img");

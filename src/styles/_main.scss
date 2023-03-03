@@ -46,19 +46,12 @@
   }
 
   #visits-wrapper {
-    //margin-top: 10px;
-    //border: 1px solid black;
     overflow: hidden;
     background-size: auto;
     padding: 50px;
     height: 100%;
     display: flex;
     justify-content: center;
-    // .visit-card {
-    //   padding: 20px;
-    //   border: 1px solid black;
-    //   width: 15%;
-    // }
     .visits {
       width: 70%;
     }
@@ -67,7 +60,7 @@
       border: 1px solid black;
       border-radius: 15px;
       box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-        0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        0 0 0 2px rgb(52, 47, 47), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
       margin: 10px 0;
       background-color: aliceblue;
       font-family: "Courier New", Courier, monospace;
@@ -82,26 +75,17 @@
       
     }
 
-    // .visit_addinfotitle {
-    //   text-decoration: underline;
-    // }
-
     .visit_addtitle {
       margin-bottom: 5px;
       text-decoration: underline;
       @include font-family-Roboto-400-italic;
     }
 
-    button {
-      // background: #9cd0d4;
-      // color: #fff; /* Белый цвет текста */
-      // border-radius: 15px;
-      // border: 1px solid #64bcc2;
+    .visit_checkbox{
+      display: flex;
+    }
 
-      // padding: 1rem 1.5rem; /* Поля вокруг текста */
-      // //margin-top: 20px;
-      // font-family: "Courier New", Courier, monospace;
-      // font-size: 17px;
+    button {
       @include buttons;
     }
 
@@ -123,7 +107,16 @@
       background-image: url(../img/iconDone.svg);
       background-size: cover;
       background-repeat: no-repeat;
-      height: 52px;
+      height: 55px;
+      width: 60px;
+      display: none;
+    }
+
+    .logo_undone {
+      background-image: url(../img/iconUndone.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 55px;
       width: 60px;
     }
 
