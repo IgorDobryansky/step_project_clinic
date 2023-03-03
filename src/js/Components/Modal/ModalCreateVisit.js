@@ -1,9 +1,9 @@
 import Modal from "./Modal.js";
 import { getAllVisits, renderAllVisits } from "../../helpers/visitRequests.js";
 import { postVisit } from "../../helpers/visitRequests.js";
-import VisitDentist from "../Visit/VisitDentist.js";
-import VisitTherapist from "../Visit/VisitDentist.js";
-import VisitCardiologist from "../Visit/VisitDentist.js";
+// import VisitDentist from "../Visit/VisitDentist.js";
+// import VisitTherapist from "../Visit/VisitDentist.js";
+// import VisitCardiologist from "../Visit/VisitDentist.js";
 
 export default class ModalCreateVisit extends Modal {
   constructor() {
@@ -30,7 +30,7 @@ export default class ModalCreateVisit extends Modal {
           this._visitDescriptionFieldset,
           this._urgencySelectFieldset,
           this._fullNameInputFieldset,
-          this._ageFieldset
+          // this._ageFieldset
         );
       } else if (selectValue === "Стоматолог") {
         this._visitFormFields.append(
@@ -38,7 +38,7 @@ export default class ModalCreateVisit extends Modal {
           this._visitDescriptionFieldset,
           this._urgencySelectFieldset,
           this._fullNameInputFieldset,
-          this._lastVisitDateFieldset
+          // this._lastVisitDateFieldset
         );
       } else {
         this._visitFormFields.append(
@@ -46,10 +46,10 @@ export default class ModalCreateVisit extends Modal {
           this._visitDescriptionFieldset,
           this._urgencySelectFieldset,
           this._fullNameInputFieldset,
-          this._bodyPressureFieldset,
-          this._bodyIndexFieldset,
-          this._diseasesFieldset,
-          this._ageFieldset
+          // this._bodyPressureFieldset,
+          // this._bodyIndexFieldset,
+          // this._diseasesFieldset,
+          // this._ageFieldset
         );
       }
       !this._visitForm.contains(this._createVisitButton)
