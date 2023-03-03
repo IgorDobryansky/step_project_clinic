@@ -1,4 +1,7 @@
-import ModalCreateVisit from "../Modal/ModalEditVisit";
+// import ModalEditVisit from "../Modal/ModalEditVisit";
+
+import Modal from "../Modal/Modal.js";
+import ModalVisit from "../Modal/ModalVisit.js";
 
 export default class Visit {
   constructor(responseObject) {
@@ -24,11 +27,13 @@ export default class Visit {
     this._hidenFields.append(this._description, this._urgency);
     this._visitParentlement = document.getElementById("visits");
     this.responseObject = responseObject;
+
     this.fullName = responseObject.fullName,
     this.doctor = responseObject.doctor,
     this.title = responseObject.title,
     this.description = responseObject.description,
     this.urgency = responseObject.urgency,
+
     this._visitCard = document.getElementById("visits");
     this.visit = document.createElement("div");
     this.visitTitle = document.createElement("div");
@@ -38,18 +43,30 @@ export default class Visit {
     this.buttonEdit = document.createElement("button");
     this.buttonStatus = document.createElement("button");
     this.logoDone = document.createElement("div");
+    this.logoUndone = document.createElement("div");
     this.visitAdd = document.createElement("div");
     this.visitAddTitle = document.createElement("div");
+    this.visitAddCheckbox = document.createElement("div");
+    this.visitAddButtons = document.createElement("div");
+    this.visitCheckbox = document.createElement("input");
+    this.visitCheckbox.setAttribute("type", "checkbox");
+    this.visitCheckboxDescription = document.createElement("p");
+    //this.visitCheckbox.setAttribute("checkbox", "KAKASHKA");
     this.visit.className="visitDiv";
+    // this.visit.className="visitHide";
     this.visitTitle.className="visitTitle";
     this.visitTitlePart1.className="visit_title1";
     this.visitAdd.className="visit_addinfo";
     this.buttonShow.className = "button_show";
     this.buttonEdit.className = "button_edit";
     this.logoDone.className = "logo_done";
+    this.logoUndone.className = "logo_undone";
     this.visitAddTitle.className = "visit_addtitle";
-    this.buttonEdit.setAttribute('id', 'buttonEditId')
+    this.visitAddCheckbox.className = "visit_checkbox";
+    this.buttonEdit.setAttribute('id', 'buttonEditId');
+    this.visitCheckbox.setAttribute('id', 'checkboxId');
     this.visitAddTitle.innerText = "Додаткова інформація:";  
+    this.visitCheckboxDescription.innerText = "Візит викон - поставте галочку:";  
     this.buttonShow.innerHTML = "Показати більше";
     this.buttonHide.innerHTML = "Приховати";
     this.buttonEdit.innerHTML = "Редагувати";
@@ -60,6 +77,7 @@ export default class Visit {
     this.visitTitlePart1.append(this._elFullName);  
     this.visitTitlePart1.append(this._elDoctor);  
     this.visitTitle.append(this.logoDone);  
+    this.visitTitle.append(this.logoUndone);  
     this.visit.append(this.visitAdd);
     this.visit.append(this.buttonShow);    
     this.visitAdd.append(this.visitAddTitle);
@@ -83,11 +101,26 @@ export default class Visit {
     this.buttonHide.addEventListener("click", function(){
       visit.hideInfo();
     }) 
+
+    this.visitCheckbox.addEventListener('click', function() {
+      console.log(visit);
+      visit.checkStatus();
+    })
   
-    this.buttonEdit.addEventListener("click", (event)=> console.log(editor = new ModalCreateVisit(responseObject)))
-    
+    this.buttonEdit.addEventListener("click", function(){
+      visit.edit();
+    })
   }
    
+  edit(){
+    let modal = new ModalVisit(this);
+    modal.render()
+  }
+
+  save(){
+    //ApiService.save(this);
+  }
+
   showInfo(){
     if (this.visitAdd.style.display === "none") {
       this.visitAdd.style.display = "block";
@@ -101,6 +134,24 @@ export default class Visit {
       this.buttonShow.style.display = "block";
       } 
     } 
+
+    checkStatus(){
+      let checkBox = document.getElementById("checkboxId");
+      console.log(checkBox)
+      let checkBoxDone = document.querySelector(".logo_done");
+      console.log(checkBoxDone);
+      let checkBoxUndone = document.querySelector(".logo_undone");
+      console.log(checkBoxUndone);
+      
+        if(checkBox.checked) {
+          console.log('kakashka')
+          checkBoxDone.style.display = "block";
+          checkBoxUndone.style.display = "none";
+        } else {
+          checkBoxUndone.style.display = "block";
+          checkBoxDone.style.display = "none";
+        }
+    }
     
     get fullName(){
       return this._fullName

@@ -80,14 +80,16 @@ export async function getAllVisits() {
 }
 
 export async function renderAllVisits() {
-  let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
-    },
-  });
+  // let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
+  //   method: "GET",
+  //   headers: {
+  //     Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
+  //   },
+  // });
 
-  let response = await request.json();
+  // let response = await request.json();
+
+  let response = await getAllVisits();
 
   document.getElementById("visits").innerHTML = "";
   await response.map((res) => {

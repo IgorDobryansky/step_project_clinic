@@ -31,7 +31,7 @@ export default class ModalCreateVisit extends Modal {
           this._visitDescriptionFieldset,
           this._urgencySelectFieldset,
           this._fullNameInputFieldset,
-          this._ageFieldset
+          // this._ageFieldset
         );
       } else if (selectValue === "Стоматолог") {
         this._visitFormFields.append(
@@ -39,7 +39,7 @@ export default class ModalCreateVisit extends Modal {
           this._visitDescriptionFieldset,
           this._urgencySelectFieldset,
           this._fullNameInputFieldset,
-          this._lastVisitDateFieldset
+          // this._lastVisitDateFieldset
         );
       } else {
         this._visitFormFields.append(
@@ -47,10 +47,10 @@ export default class ModalCreateVisit extends Modal {
           this._visitDescriptionFieldset,
           this._urgencySelectFieldset,
           this._fullNameInputFieldset,
-          this._bodyPressureFieldset,
-          this._bodyIndexFieldset,
-          this._diseasesFieldset,
-          this._ageFieldset
+          // this._bodyPressureFieldset,
+          // this._bodyIndexFieldset,
+          // this._diseasesFieldset,
+          // this._ageFieldset
         );
       }
       !this._visitForm.contains(this._createVisitButton)

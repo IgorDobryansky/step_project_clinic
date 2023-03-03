@@ -1,14 +1,19 @@
 export default class Modal {
   constructor() {
     this._modalWrapper = document.createElement("div");
+    let modal = this;
     this._modalWrapper.addEventListener("click", (event) => {
       let target = event.target;
       let itsModal = target === this._modal || this._modal.contains(target);
       let itsClose = target === this._closeButton;
+
       if (!itsModal || itsClose) {
         this._modalWrapper.classList.add("hide");
         this._modalWrapper.onanimationend = this._modalWrapper.remove;
       }
+
+      if (!itsModal || itsClose) modal.close();
+
     });
     this._modalWrapper.className = "modal-window-wrapper";
     this._modal = document.createElement("form");
@@ -23,5 +28,9 @@ export default class Modal {
     if (document.body.contains(document.querySelector(".modal-window-wrapper")))
       return;
     document.body.prepend(this._modalWrapper);
+  }
+
+  close() {
+    this._modalWrapper.remove()
   }
 }
