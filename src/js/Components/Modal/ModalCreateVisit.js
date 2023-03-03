@@ -4,6 +4,7 @@ import { postVisit } from "../../helpers/visitRequests.js";
 import VisitDentist from "../Visit/VisitDentist.js";
 import VisitTherapist from "../Visit/VisitDentist.js";
 import VisitCardiologist from "../Visit/VisitDentist.js";
+import { VisitApi } from "../../API/VisitAPI.js";
 
 export default class ModalCreateVisit extends Modal {
   constructor() {
@@ -207,12 +208,16 @@ export default class ModalCreateVisit extends Modal {
       const createVisitObject = Object.fromEntries(
         new FormData(this._visitForm)
       );
+      console.log("некая структура", new FormData(this._visitForm));
+      console.log("готовый обьект",createVisitObject);
       this._createVisitButton.disabled = true;
-      postVisit(createVisitObject).then((response) => {
-        this._createVisitButton.disabled = false;
-        this._modalWrapper.remove();
-        renderAllVisits();
-      });
+      VisitApi.postVisit(createVisitObject);
+      // this._modalWrapper.classList.add("show");
+      // postVisit(createVisitObject).then((response) => {
+      //   this._createVisitButton.disabled = false;
+      //   this._modalWrapper.remove();
+      //   renderAllVisits();
+      // });
     });
 
     this._visitForm.append(this._doctorSelectFieldset, this._visitFormFields);
