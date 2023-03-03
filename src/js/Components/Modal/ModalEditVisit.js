@@ -1,9 +1,9 @@
-//import ModalCreateVisit from "./ModalCreateVisit";
+ import ModalCreateVisit from "./ModalCreateVisit.js";
 
 
-////export default class ModalEditVisit extends ModalCreateVisit {
+export default class ModalEditVisit extends ModalCreateVisit {
 //     constructor(){
-//         super();
+        //  super();
 //         this._createVisitHeader = document.createElement("h2");
 //         this._createVisitHeader.innerText = "Відредагувати візит";
 //     }
@@ -21,4 +21,4 @@
 //         )}
 
 //     }  
-//}    
+}    
