@@ -26,7 +26,6 @@ export default class Visit {
     );
     this._hidenFields.append(this._description, this._urgency);
     this._visitParentlement = document.getElementById("visits");
-    console.log(responseObject),
     this.responseObject = responseObject;
 
     this.fullName = responseObject.fullName,
