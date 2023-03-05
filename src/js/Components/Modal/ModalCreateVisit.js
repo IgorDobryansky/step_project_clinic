@@ -1,6 +1,6 @@
 import Modal from "./Modal.js";
 import { getAllVisits, renderAllVisits } from "../../helpers/visitRequests.js";
-import { postVisit } from "../../helpers/visitRequests.js";
+import { postVisit } from "../../Services/VisitsService.js"
 // import VisitDentist from "../Visit/VisitDentist.js";
 // import VisitTherapist from "../Visit/VisitDentist.js";
 // import VisitCardiologist from "../Visit/VisitDentist.js";

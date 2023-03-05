@@ -4,39 +4,50 @@ import ModalVisitCardiologist from "../Modal/ModalVisitCardiologist.js";
 export default class VisitCardiologist extends Visit {
   constructor(responseObject) {
     super(responseObject);
-    this.bpLower = responseObject.bpLower,
-    this.bpUpper = responseObject.bpUpper,
-    this.bodyIndex = responseObject.bodyIndex,
-    this.diseases = responseObject.diseases,      
-    this.age = responseObject.age
+    if (responseObject) {
+      this.bp = this.bp;
+      this.bpLower = responseObject.bpLower;
+      this.bpUpper = responseObject.bpUpper;
+      this.bodyIndex = responseObject.bodyIndex;
+      this.diseases = responseObject.diseases;
+      this.age = responseObject.age;
+    } else {
+      this.bp = "";
+      this.bpLower = "";
+      this.bpUpper = "";
+      this.bodyIndex = "";
+      this.diseases = "";
+      this.age = "";
+    }
+    this.data.doctor = "Кардіолог";
   } 
 
   get bpLower(){
-    return this._pressure
+    return this.data.bpLower;
   }
 
   set bpLower(value) {
     if (!this._elBpLower) {
       this._elBpLower = document.createElement('p');
     }
-    this._elBpLower.innerText = `Нижній артеріальний тиск: ${value};`;
-    this._bpLower = value;
+    this._elBpLower.innerText = `${value};`;
+    this.data.bpLower = value;
   }
 
   get bpUpper(){
-    return this._pressure
+    return this.data.bpUpper;
   }
 
   set bpUpper(value) {
     if (!this._elBpUpper) {
       this._elBpUpper = document.createElement('p');
     }
-    this._elBpUpper.innerText = `Верхній артеріальний тиск: ${value};`;
-    this._bpUpper = value;
+    this._elBpUpper.innerText = `${value};`;
+    this.data.bpUpper = value;
   }
 
   get bodyIndex(){
-    return this._bodyIndex
+    return this.data.bodyIndex
   }
 
   set bodyIndex(value) {
@@ -44,11 +55,11 @@ export default class VisitCardiologist extends Visit {
       this._elBodyIndex = document.createElement('p');
     }
     this._elBodyIndex.innerText = `Індекс маси тіла: ${value};`;
-    this._bodyIndex = value;
+    this.data.bodyIndex = value;
   }
 
   get diseases(){
-    return this._diseases
+    return this.data.diseases
   }
 
   set diseases(value) {
@@ -56,11 +67,11 @@ export default class VisitCardiologist extends Visit {
       this._elDiseases = document.createElement('p');
     }
     this._elDiseases.innerText = `Перенесені захворювання серцево-судинної системи: ${value};`;
-    this._diseases = value;
+    this.data.diseases = value;
   }
 
   get age(){
-    return this._age
+    return this.data.age
   }
 
   set age(value) {
@@ -68,45 +79,46 @@ export default class VisitCardiologist extends Visit {
       this._elAge = document.createElement('p');
     }
     this._elAge.innerText = `Вік: ${value};`;
-    this._age = value;
+    this.data.age = value;
   } 
 
   edit(){
-    let modal = new ModalVisitCardiologist(this);
+    let modal = new ModalVisitCardiologist(this, true);
     modal.render()
   }
 
   render(){
     this.renderVisitBase();
     let visit = this;
-    this.visitAdd.append(this._elBpUpper, this._elBpLower, this._elBodyIndex, this._elDiseases, this._elAge);
-    this.visitAdd.append(this.visitAddCheckbox);
-    this.visitAddCheckbox.append(this.visitCheckboxDescription);
-    this.visitAddCheckbox.append(this.visitCheckbox);
-    this.visitAdd.append(this.visitAddButtons);
-    this.visitAddButtons.append(this.buttonHide);
-    this.visitAddButtons.append(this.buttonEdit);
+
+    this._elBp = document.createElement('div');
+    this._elBp.innerHTML = `Артеріальний тиск: ${this._bpUpper} / ${this._bpLower}`
+    //this._elBp.append(this._elBpUpper, this._elBpLower)
+    this._visitAdd.append(this._elBp, this._elBodyIndex, this._elDiseases, this._elAge);
+    this._visitAdd.append(this._visitAddCheckbox);
+    this._visitAddCheckbox.append(this._visitCheckboxDescription);
+    this._visitAddCheckbox.append(this._visitCheckbox);
+    this._visitAdd.append(this._visitAddButtons);
+    this._visitAddButtons.append(this._buttonHide);
+    this._visitAddButtons.append(this._buttonEdit);
 
     // this.visitCheckbox.addEventListener('click', function() {
     //   this.visit.checkStatus();
     // })
   }
 
-  // checkStatus(){
-  //   let checkBox = document.getElementById("checkboxId");
-  //   console.log(checkBox)
-  //   let checkBoxDone = document.querySelector(".logo_done");
-  //   console.log(checkBoxDone);
-  //   let checkBoxUndone = document.querySelector(".logo_undone");
-  //   console.log(checkBoxUndone);
+  checkStatus(){
+    let checkBox = document.getElementById("checkboxId");
+    console.log(checkBox);
     
-  //     if(checkBox.checked) {
-  //       console.log('kakashka')
-  //       checkBoxDone.style.display = "block";
-  //       checkBoxUndone.style.display = "none";
-  //     } else {
-  //       checkBoxUndone.style.display = "block";
-  //       checkBoxDone.style.display = "none";
-  //     }
-  // }
+      if(checkBox.checked) {
+        this.status == "close";
+        alert("CLOSE")
+        console.log(this.status)
+      } 
+      // else {
+      //   checkBoxUndone.style.display = "block";
+      //   checkBoxDone.style.display = "none";
+      // }
+  }
 }
