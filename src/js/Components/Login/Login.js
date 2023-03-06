@@ -40,12 +40,10 @@ export default class Login {
     loginButtons.innerHTML = "";
 
     if (localStorage.getItem("clinic-token")) {
-      Login.loginStatus = true;
       loginButtons.append(this._createVisit, this._logoutButton);
       renderAllVisits()
       return true;
     } else {
-      Login.loginStatus = false;
       loginButtons.append(this._loginButton);
       return false;
     }
