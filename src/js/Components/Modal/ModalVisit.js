@@ -70,7 +70,6 @@ export default class ModalVisit extends Modal {
     this._visitPurpose.name = "title";
     this._visitPurpose.title = "Вкажіть мету візиту. Мінімум 10 символів.";
     this._visitPurpose.pattern = ".{10,}";
-    //this._visitPurpose.value = visit.title;
     this._visitPurpose.required = true;
     this._visitPurposeFieldset.append(
       this._visitPurposeLegend,

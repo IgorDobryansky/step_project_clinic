@@ -92,8 +92,7 @@ export default class VisitCardiologist extends Visit {
     let visit = this;
 
     this._elBp = document.createElement('div');
-    this._elBp.innerHTML = `Артеріальний тиск: ${this._bpUpper} / ${this._bpLower}`
-    //this._elBp.append(this._elBpUpper, this._elBpLower)
+    this._elBp.innerHTML = `Артеріальний тиск: ${this.bpUpper} / ${this.bpLower}`
     this._visitAdd.append(this._elBp, this._elBodyIndex, this._elDiseases, this._elAge);
     this._visitAdd.append(this._visitAddCheckbox);
     this._visitAddCheckbox.append(this._visitCheckboxDescription);
@@ -101,16 +100,5 @@ export default class VisitCardiologist extends Visit {
     this._visitAdd.append(this._visitAddButtons);
     this._visitAddButtons.append(this._buttonHide);
     this._visitAddButtons.append(this._buttonEdit);
-  }
-
-  checkStatus(){
-    let checkBox = document.getElementById("checkboxId");
-    console.log(checkBox);
-    
-      if(checkBox.checked) {
-        this.status == "close";
-        alert("CLOSE")
-        console.log(this.status)
-      } 
   }
 }

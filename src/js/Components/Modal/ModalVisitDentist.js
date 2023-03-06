@@ -39,15 +39,4 @@ export default class ModalVisitDentist extends ModalVisit {
     updateAdditionalVisitFields(){
       this.visit.lastVisitDate = this.lastVisitDate;
     }
-
-    checkStatus(){
-      let checkBox = document.getElementById("checkboxId");
-      console.log(checkBox);
-      
-        if(checkBox.checked) {
-          this.status == "close";
-          alert("CLOSE")
-          console.log(this.status)
-        } 
-      }
 }

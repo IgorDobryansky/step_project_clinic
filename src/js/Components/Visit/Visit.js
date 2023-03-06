@@ -1,11 +1,14 @@
 import Modal from "../Modal/Modal.js";
 import ModalVisit from "../Modal/ModalVisit.js";
-import { postVisit, putVisit } from "../../Services/VisitsService.js"
+import { postVisit, putVisit, deleteVisit } from "../../Services/VisitsService.js";
+import closeImg from "../../../img/close-window.png"
 
 export default class Visit {
   constructor(responseObject) {
     this._visitDiv = document.createElement("div");
-    this._visitDiv.className = "visit-container"
+    this._visitDiv.className = "visit-container";
+    this._close = document.createElement("img");
+    this._close.src=closeImg;
     this._showMoreButton = document.createElement("button");
     this._showMoreButton.innerText = "Показати більше";
     this._visit = document.createElement("div");
@@ -45,9 +48,7 @@ export default class Visit {
     this._visitAddTitle = document.createElement("div");
     this._visitAddCheckbox = document.createElement("div");
     this._visitAddButtons = document.createElement("div");
-    //this.visitCheckbox.setAttribute("checkbox", "KAKASHKA");
     this._visit.className="visitDiv";
-    // this.visit.className="visitHide";
     this._visitTitle.className="visitTitle";
     this._visitTitlePart1.className="visit_title1";
     this._visitAdd.className="visit_addinfo";
@@ -64,7 +65,8 @@ export default class Visit {
     this._logoUndone.className = "logo_undone";
 
     this._visit.append(this._visitTitle);  
-    this._visitTitle.append(this._visitTitlePart1);  
+    this._visitTitle.append(this._close); 
+    this._visitTitle.append(this._visitTitlePart1);   
     this._visitTitlePart1.append(this._elFullName);  
     this._visitTitlePart1.append(this._elDoctor);  
     this._visitTitle.append(this._logoDone);  
@@ -75,7 +77,8 @@ export default class Visit {
     this._visitAdd.append(this._elTitle);
     this._visitAdd.append(this._elDescription);
     this._visitAdd.append(this._elUrgency);
-    this._visitAdd.style.display = "none"
+    this._visitAdd.style.display = "none";
+    this._close.style.cursor = "pointer";
   }
 
   render(){
@@ -84,6 +87,11 @@ export default class Visit {
 
   renderVisitBase() {
     let visit = this;
+    let visitId = this.visitId
+
+    this._close.addEventListener("click", function(){
+      visit.delete();
+    })
 
     this._buttonShow.addEventListener("click", function(){
       visit.showInfo();
@@ -94,7 +102,6 @@ export default class Visit {
     }) 
 
     this._visitCheckbox.addEventListener('click', function() {
-      console.log(visit);
       visit.checkStatus();
       visit.save();
     })
@@ -109,6 +116,12 @@ export default class Visit {
   edit(){
     let modal = new ModalVisit(this);
     modal.render()
+  }
+
+  delete(){
+    deleteVisit(this.data.id);
+    this._visitCard.remove(this._visit);
+
   }
 
   async save(){
@@ -139,6 +152,8 @@ export default class Visit {
   checkStatus(){
       if(this._visitCheckbox.checked) {
         this.status = "close";
+        // console.log(document.getElementById('buttonEditId'));
+        // document.getElementById('buttonEditId').style.display = "none";
         console.log(this.status)
       } else {
         this.status = "open";
@@ -213,16 +228,6 @@ export default class Visit {
       return this.data.status;
     }
 
-    createVisitCheckbox (){
-      this._logoDone = document.createElement("div");
-      this._logoUndone = document.createElement("div");
-    
-      this._visitCheckbox = document.createElement("input");
-      this._visitCheckbox.setAttribute("type", "checkbox");
-      this._visitCheckboxDescription = document.createElement("p");
-      this._visitCheckboxDescription.innerText = "Візит викон - поставте галочку:";  
-    }
-
     set status(value){
       if (!this._visitCheckbox) {
         this.createVisitCheckbox();
@@ -231,12 +236,23 @@ export default class Visit {
       if (value == "close") {
         this._logoDone.style.display = "block";
         this._logoUndone.style.display = "none";
+        this._visit.style.backgroundColor = 'rgb(192, 208, 219, 0.85)';
         this._visitCheckbox.checked = true;
       } else {
         this._logoDone.style.display = "none";
         this._logoUndone.style.display = "block";
+        this._visit.style.backgroundColor = 'rgb(240, 248, 255, 0.85)';
         this._visitCheckbox.checked = false
       }
     }
-  
+
+    createVisitCheckbox (){
+      this._logoDone = document.createElement("div");
+      this._logoUndone = document.createElement("div");
+    
+      this._visitCheckbox = document.createElement("input");
+      this._visitCheckbox.setAttribute("type", "checkbox");
+      this._visitCheckboxDescription = document.createElement("p");
+      this._visitCheckboxDescription.innerText = "Візит виконан - поставте галочку:";  
+    }
   } 
