@@ -2,82 +2,84 @@ import VisitCardiologist from "../Components/Visit/VisitCardiologist.js";
 import VisitDentist from "../Components/Visit/VisitDentist.js";
 import VisitTherapist from "../Components/Visit/VisitTherapist.js";
 
-export async function postVisit(visitObject) {
-  let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
-    },
-    body: JSON.stringify({ ...visitObject, status: "open" }),
-  });
+import {getAllVisits} from "../Services/VisitsService.js"
 
-  let response = await request.json();
-  return response;
-}
+// export async function postVisit(visitObject) {
+//   let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
+//     },
+//     body: JSON.stringify({ ...visitObject, status: "open" }),
+//   });
 
-export async function putVisit(visitId) {
-  let request = await fetch(
-    `https://ajax.test-danit.com/api/v2/cards/${visitId}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
-      },
-      body: JSON.stringify({
-        title: "Визит к кардиологу",
-        description: "Плановый визит",
-        doctor: "Cardiologist",
-        bp: "24",
-        age: 23,
-        weight: 70,
-      }),
-    }
-  );
+//   let response = await request.json();
+//   return response;
+// }
 
-  let response = await request.json();
-  return response;
-}
+// export async function putVisit(visitId) {
+//   let request = await fetch(
+//     `https://ajax.test-danit.com/api/v2/cards/${visitId}`,
+//     {
+//       method: "PUT",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
+//       },
+//       body: JSON.stringify({
+//         title: "Визит к кардиологу",
+//         description: "Плановый визит",
+//         doctor: "Cardiologist",
+//         bp: "24",
+//         age: 23,
+//         weight: 70,
+//       }),
+//     }
+//   );
 
-export async function deleteVisit(visitId) {
-  let request = await fetch(
-    `https://ajax.test-danit.com/api/v2/cards/${visitId}`,
-    {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
-      },
-    }
-  );
-}
+//   let response = await request.json();
+//   return response;
+// }
 
-export async function deleteAllVisit() {
-  let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
-    },
-  });
+// export async function deleteVisit(visitId) {
+//   let request = await fetch(
+//     `https://ajax.test-danit.com/api/v2/cards/${visitId}`,
+//     {
+//       method: "DELETE",
+//       headers: {
+//         Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
+//       },
+//     }
+//   );
+// }
 
-  let response = await request.json();
-  response.map((res) => {
-    deleteVisit(res.id);
-  });
-}
+// export async function deleteAllVisit() {
+//   let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
+//     },
+//   });
 
-export async function getAllVisits() {
-  let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
-    },
-  });
+//   let response = await request.json();
+//   response.map((res) => {
+//     deleteVisit(res.id);
+//   });
+// }
 
-  let response = await request.json();
+// export async function getAllVisits() {
+//   let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
+//     },
+//   });
 
-  return response;
-}
+//   let response = await request.json();
+
+//   return response;
+// }
 
 export async function renderAllVisits() {
   // let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
@@ -92,7 +94,9 @@ export async function renderAllVisits() {
   let response = await getAllVisits();
 
   document.getElementById("visits").innerHTML = "";
+
   await response.map((res) => {
+    document.getElementById("no-visits-placeholder").style.display = "none";
     if (res.doctor === "Терапевт") new VisitTherapist(res).render();
     else if (res.doctor === "Стоматолог") new VisitDentist(res).render();
     else if (res.doctor === "Кардіолог") new VisitCardiologist(res).render();
