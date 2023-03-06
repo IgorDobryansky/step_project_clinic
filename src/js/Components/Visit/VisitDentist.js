@@ -40,31 +40,6 @@ export default class VisitDentist extends Visit {
     this._visitAdd.append(this._visitAddButtons);
     this._visitAddButtons.append(this._buttonHide);
     this._visitAddButtons.append(this._buttonEdit);
-
-    
-    // this.visitCheckbox.addEventListener('click', function() {
-    //   console.log(visit);
-    //   visit.checkStatus();
-    // })
- 
   }
-  
-  // checkStatus(){
-  //   let checkBox = document.getElementById("checkboxId");
-  //   console.log(checkBox)
-  //   let checkBoxDone = document.querySelector(".logo_done");
-  //   console.log(checkBoxDone);
-  //   let checkBoxUndone = document.querySelector(".logo_undone");
-  //   console.log(checkBoxUndone);
-    
-  //     if(checkBox.checked) {
-  //       console.log('kakashka')
-  //       checkBoxDone.style.display = "block";
-  //       checkBoxUndone.style.display = "none";
-  //     } else {
-  //       checkBoxUndone.style.display = "block";
-  //       checkBoxDone.style.display = "none";
-  //     }
-  // }
 }  
 

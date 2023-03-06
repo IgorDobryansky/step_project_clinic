@@ -101,10 +101,6 @@ export default class VisitCardiologist extends Visit {
     this._visitAdd.append(this._visitAddButtons);
     this._visitAddButtons.append(this._buttonHide);
     this._visitAddButtons.append(this._buttonEdit);
-
-    // this.visitCheckbox.addEventListener('click', function() {
-    //   this.visit.checkStatus();
-    // })
   }
 
   checkStatus(){
@@ -116,9 +112,5 @@ export default class VisitCardiologist extends Visit {
         alert("CLOSE")
         console.log(this.status)
       } 
-      // else {
-      //   checkBoxUndone.style.display = "block";
-      //   checkBoxDone.style.display = "none";
-      // }
   }
 }

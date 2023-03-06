@@ -1,5 +1,3 @@
-// import ModalEditVisit from "../Modal/ModalEditVisit";
-
 import Modal from "../Modal/Modal.js";
 import ModalVisit from "../Modal/ModalVisit.js";
 import { postVisit, putVisit } from "../../Services/VisitsService.js"

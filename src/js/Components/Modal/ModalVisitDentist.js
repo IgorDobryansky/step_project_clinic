@@ -7,12 +7,10 @@ export default class ModalVisitDentist extends ModalVisit {
     this.lastVisitDate = visit.lastVisitDate;
 
     this._visitFormFields.append(this._lastVisitDateFieldset)
-
   }
 
     get lastVisitDate(){
-      return this._lastVisitDate.value;
-     
+      return this._lastVisitDate.value;     
     }
 
     set lastVisitDate(value){

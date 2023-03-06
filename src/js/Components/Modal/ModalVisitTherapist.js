@@ -13,8 +13,7 @@ export default class ModelVisitTherapist extends ModalVisit{
 
     get age(){
         console.log(this._age.value)
-        return this._age.value;
-        
+        return this._age.value;    
     }
     
     set age(value){
@@ -24,8 +23,7 @@ export default class ModelVisitTherapist extends ModalVisit{
     
         this._age.value = value;
         console.log(value);
-        return value;
-        
+        return value;        
     } 
 
     updateAdditionalVisitFields(){
