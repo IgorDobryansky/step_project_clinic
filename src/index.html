@@ -42,9 +42,12 @@
           </fieldset>
         </section>
 
-        <h2 class="visits-availability">Візитів поки немає</h2>
+        <h2 id="no-visits-placeholder" class="visits-availability">Візитів поки немає</h2>
         <section id="visits-wrapper">
-          <div id="visits" class="visits"></div>
+          <div data-status="status" data-urgency="urgency">
+            <div id="visits" class="visits"></div>
+          </div>
+          
         </section>
       </main>
       <footer class="footer">

@@ -1,5 +1,6 @@
 import ModalLogin from "../Modal/ModalLogin.js";
 import ModalCreateVisit from "../Modal/ModalCreateVisit.js";
+import ModalChooseDoctor from "../Modal/ModalChooseDoctor.js";
 import { renderAllVisits } from "../../helpers/visitRequests.js";
 
 export default class Login {
@@ -25,7 +26,8 @@ export default class Login {
     this._createVisit.innerText = "Створити візит";
     this._createVisit.addEventListener("click", (event) => {
       event.preventDefault();
-      new ModalCreateVisit().render();
+      // new ModalCreateVisit().render();
+      new ModalChooseDoctor().render();
     });
   }
 

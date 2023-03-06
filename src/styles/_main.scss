@@ -56,9 +56,9 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    .visits {
-      width: 70%;
-    }
+    // .visits {
+    //   //width: 70%;
+    // }
     .visitDiv {
       padding: 20px;
       border: 1px solid black;
@@ -66,10 +66,10 @@
       box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
         0 0 0 2px rgb(52, 47, 47), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
       margin: 10px 0;
-      background-color: aliceblue;
+      // background-color1: aliceblue;
+      // background-color2: rgba(192, 208, 219, 0.628);
       font-family: "Courier New", Courier, monospace;
       font-size: 20px;
-     
     }
 
     .visitTitle {
@@ -104,7 +104,6 @@
       margin-left: 20px;
       @include buttons;
       margin-top: 20px;
-   
     }
 
     .logo_done {
