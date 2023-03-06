@@ -7,7 +7,7 @@ import Visit from "./Components/Visit/Visit.js";
 import VisitCardiologist from "./Components/Visit/VisitCardiologist.js";
 import VisitDentist from "./Components/Visit/VisitDentist.js";
 import VisitTherapist from "./Components/Visit/VisitTherapist.js";
-import searchInput from "./Components/Search/searchInput.js";
+import { VisitApi } from "./API/VisitAPI.js";
 
 import logo from "../img/daily-health-app (1).png";
 const image = document.createElement("img");
@@ -24,18 +24,8 @@ import {
 function app() {
   !Login.loginStatus && Login.isLogged();
 
-
-// getAllVisits().then(response=>{
-//   document.getElementById("visits").innerHTML = "";
-//   console.log(response);
-//   response.map((res) => {
-//     console.log(res);
-//     if (res.doctor === "Терапевт") new VisitTherapist(res).render();
-//     else if (res.doctor === "Стоматолог") new VisitDentist(res).render();
-    // else if (res.doctor === "Кардіолог") new VisitCardiologist(res).render();
-//   });
-// })
-
+  VisitApi.getAllVisits();
+  
 }
 
 app();
