@@ -41,5 +41,17 @@
       top: 5px;
       right: 5px;
     }
+    .rotate{
+      animation: rotate 800ms linear infinite;
+    }
+    @keyframes rotate {
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+      
+    }
   }
 }

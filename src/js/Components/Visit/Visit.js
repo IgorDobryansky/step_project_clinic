@@ -120,15 +120,12 @@ export default class Visit {
   }
 
   delete(e) {
-    console.log(this);
-    console.log(this.data.id);
-    console.log(this._responseObject);
+   this._close.classList.add("rotate")
     deleteVisit(this._responseObject.id).then((response) => {
       if (response.ok) {
         removeItem(grid.getItem(e.target.closest(".visit-item")));
         this._visitWrapper.remove();
 
-        console.log(response);
       }
     });
   }

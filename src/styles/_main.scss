@@ -1,5 +1,4 @@
 .main {
-
   background-size: cover;
   width: 100%;
   min-height: 80%;
@@ -11,23 +10,14 @@
   .search-bar {
     width: 100%;
     height: 100px;
-    padding: 10px;
+
+    padding: 10px 0;
     background-color: #9cd0d4;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
+    align-items: center;
 
-    &-field {
-      display: flex;
-      justify-content: flex-end;
-      width: 45%;
-      //border: 1px solid black;
-      padding: 10px;
-      legend {
-        margin-left: 10px;
-        font-size: 20px;
-        color: aliceblue;
-      }
-    }
+    //border: 1px solid black;
   }
 
   .search-bar_input {
@@ -38,11 +28,12 @@
     padding: 5px 10px;
   }
 
-  .search-bar_select {
+  .status-bar_select,
+  .urgency-bar_select {
     margin-right: 10px;
     height: 30px;
     border-radius: 10px;
-    width: 120px;
+    // width: 120px;
     padding: 5px 10px;
   }
 
@@ -57,8 +48,8 @@
       padding: 20px;
       border: 1px solid black;
       border-radius: 15px;
-      box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-        0 0 0 2px rgb(52, 47, 47), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(52, 47, 47),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
       margin: 10px 0;
       // background-color1: aliceblue;
       // background-color2: rgba(192, 208, 219, 0.628);
@@ -70,7 +61,6 @@
       display: flex;
       justify-content: space-between;
       @include font-family-Roboto-700-italic;
-      
     }
 
     .visit_addtitle {
@@ -79,7 +69,7 @@
       @include font-family-Roboto-400-italic;
     }
 
-    .visit_checkbox{
+    .visit_checkbox {
       display: flex;
     }
 
@@ -116,8 +106,6 @@
       height: 55px;
       width: 60px;
     }
-
-   
 
     h1 {
       font-size: 21px;

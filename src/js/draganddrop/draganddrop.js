@@ -34,10 +34,7 @@ export let grid = new Muuri(gridElement, {
   dragSortInterval: 50,
   dragContainer: gridElement,
   dragStartPredicate: function (item, event) {
-    let isRemoveAction = elementMatches(
-      event.target,
-      ".delete-icon"
-    );
+    let isRemoveAction = elementMatches(event.target, ".delete-icon");
     return !isRemoveAction
       ? Muuri.ItemDrag.defaultStartPredicate(item, event)
       : false;
@@ -85,13 +82,13 @@ export function removeItem(item) {
 }
 
 function elementMatches(element, selector) {
-    let p = Element.prototype;
-    return (
-      p.matches ||
-      p.matchesSelector ||
-      p.webkitMatchesSelector ||
-      p.mozMatchesSelector ||
-      p.msMatchesSelector ||
-      p.oMatchesSelector
-    ).call(element, selector);
-  }
+  let p = Element.prototype;
+  return (
+    p.matches ||
+    p.matchesSelector ||
+    p.webkitMatchesSelector ||
+    p.mozMatchesSelector ||
+    p.msMatchesSelector ||
+    p.oMatchesSelector
+  ).call(element, selector);
+}
