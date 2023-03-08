@@ -1,6 +1,7 @@
 import ModalLogin from "../Modal/ModalLogin.js";
 import ModalChooseDoctor from "../Modal/ModalChooseDoctor.js";
 import { renderAllVisits } from "../../helpers/visitRequests.js";
+import { removeItem, grid } from "../../draganddrop/draganddrop.js";
 
 export default class Login {
   constructor() {
@@ -18,6 +19,10 @@ export default class Login {
       localStorage.removeItem("clinic-token");
       Login.loginStatus = false;
       new Login().render();
+       grid.getItems().forEach(item=>{
+         removeItem(item)
+
+       })
       document.getElementById("visits").innerHTML = "";
     });
 

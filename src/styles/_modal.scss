@@ -183,14 +183,14 @@
   }
   .error {
     animation: error 200ms linear 4;
-    background-color: red;
+    background-color: grey;
   }
   @keyframes error {
     0% {
       background-color: white;
     }
     100% {
-      background-color: red;
+      background-color: grey;
     }
   }
 }

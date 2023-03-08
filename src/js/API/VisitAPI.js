@@ -78,6 +78,8 @@ export class VisitApi {
     response.map((res) => {
       this.deleteVisit(res.id);
     });
+
+    
   }
 
   static async getAllVisits() {

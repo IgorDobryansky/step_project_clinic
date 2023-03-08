@@ -1,5 +1,6 @@
 import ModalVisit from "../Modal/ModalVisit.js";
 import { grid, removeItem } from "../../draganddrop/draganddrop.js";
+// import { hideInfo } from "../../helpers/visitRequests.js";
 
 import {
   postVisit,
@@ -47,7 +48,6 @@ export default class Visit {
     this._visitAdd = document.createElement("div");
     this._visitAddTitle = document.createElement("div");
     this._visitAddCheckbox = document.createElement("div");
-    this._visitAddButtons = document.createElement("div");
 
     this._visitTitle.className = "visit_title";
     this._visitAdd.className = "visit_addinfo";
@@ -94,6 +94,7 @@ export default class Visit {
     });
 
     this._buttonShow.addEventListener("click", function () {
+      
       visit.showInfo();
     });
 
@@ -107,6 +108,14 @@ export default class Visit {
     });
   }
 
+  hideInfo() {
+    let array1 = document.querySelectorAll(".visit-item");
+
+    array1.forEach((item) => {
+      item.classList.remove("above-others");
+    });
+  }
+
   edit() {
     let modal = new ModalVisit(this);
     modal.render();
@@ -115,7 +124,6 @@ export default class Visit {
   delete(e) {
     this._close.classList.add("rotate");
     deleteVisit(this.id).then((response) => {
-      console.log(response)
       if (response.ok) {
         removeItem(grid.getItem(e.target.closest(".visit-item")));
         this._visitWrapper.remove();
@@ -126,16 +134,25 @@ export default class Visit {
   async save() {
     if (this._newRecord) {
       await postVisit(this.data).then((response) => {
+        this.data = response;
       });
       this._newRecord = false;
       this.render();
     } else {
-      await putVisit(this.data).then((response) => {
-      });
+      await putVisit(this.data).then((response) => {});
     }
   }
 
   showInfo() {
+    //   let array2 = document.querySelectorAll(".visit_addinfo");
+    // let array1 = document.querySelectorAll(".visit-item");
+
+    //   array1.forEach((item) => {
+    //     item.classList.remove("above-others");
+    //   });
+    //   array2.forEach((item) => {
+    //     item.classList.remove("show-info");
+    //   });
     this._visitAdd.classList.toggle("show-info");
     this._visitWrapper.classList.toggle("above-others");
     if (this._visitAdd.classList.contains("show-info")) {
@@ -150,14 +167,16 @@ export default class Visit {
       this.data.status = "Виконано";
       this._visitCheckboxDescription.innerText = "Візит закритий";
       this._visit.style.backgroundColor = "rgb(192, 208, 219)";
-      // console.log(this.data);
+      this.data.status = "Виконано";
+      this.save();
       this._buttonEdit.disabled = true;
     } else {
       this.status = "В процесі";
-      // console.log(this.data);
       this._visitCheckboxDescription.innerText = "Візит відкритий";
       this._visit.style.backgroundColor = "rgb(240, 248, 255)";
+      this.data.status = "В процесі";
       this._buttonEdit.disabled = false;
+      this.save();
     }
   }
 
@@ -243,16 +262,6 @@ export default class Visit {
       this.createVisitCheckbox();
     }
     this.data.status = value;
-    // if (value == "Виконано") {
-    //   this._visitCheckbox.checked = true;
-    //   this._visitCheckbox.disabled = true;
-    //   this._visitCheckboxDescription.innerText = "Візит закритий";
-    // } else {
-
-    //   this._visitCheckbox.checked = false;
-    //   this._visitCheckbox.disabled = false;
-    //   this._visitCheckboxDescription.innerText = "Візит відкритий";
-    // }
   }
 
   createVisitCheckbox() {
