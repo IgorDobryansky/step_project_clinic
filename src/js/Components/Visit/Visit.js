@@ -38,7 +38,7 @@ export default class Visit {
       this.description = "";
       this.urgency = "";
       this.status = "В процесі";
-      // this.id = responseObject.id
+      this.id = "";
       this._newRecord = true;
     }
     this._visitWrapper.setAttribute("data-status", this.status);

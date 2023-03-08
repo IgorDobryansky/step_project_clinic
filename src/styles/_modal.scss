@@ -125,6 +125,7 @@
       &:focus {
         text-decoration: underline;
       }
+      @include buttons;
     }
     .or-text {
       margin-top: 10px;

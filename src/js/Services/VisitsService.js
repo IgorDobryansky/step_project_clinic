@@ -21,14 +21,7 @@ export async function putVisit(visitObject) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
       },
-      body: JSON.stringify({
-        title: "Визит к кардиологу",
-        description: "Плановый визит",
-        doctor: "Cardiologist",
-        bp: "24",
-        age: 23,
-        weight: 70,
-      }),
+      body: JSON.stringify(visitObject),
     }
   );
 
