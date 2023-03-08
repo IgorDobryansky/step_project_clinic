@@ -16,7 +16,6 @@ export class VisitApi {
 
     let response = await request.json();
     this.visits.push(response);
-    console.log(VisitApi.visits);
     return response;
   }
 
@@ -94,7 +93,6 @@ export class VisitApi {
     response.map((res) => {
       this.visits.push(res);
     });
-    console.log(VisitApi.visits);
     return response;
   }
 }

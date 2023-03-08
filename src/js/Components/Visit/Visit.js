@@ -43,7 +43,6 @@ export default class Visit {
     this._visitWrapper.setAttribute("data-status", this.status);
     this._visitTitle = document.createElement("div");
     this._buttonShow = document.createElement("button");
-    // this._buttonHide = document.createElement("button");
     this._buttonEdit = document.createElement("button");
     this._visitAdd = document.createElement("div");
     this._visitAddTitle = document.createElement("div");
@@ -54,13 +53,11 @@ export default class Visit {
     this._visitAdd.className = "visit_addinfo";
     this._buttonShow.className = "button button_show";
     this._buttonEdit.className = "button button_edit";
-    // this._buttonHide.className = "button button_hide";
     this._visitAddTitle.className = "visit_addtitle";
     this._visitAddCheckbox.className = "visit_checkbox";
     this._buttonEdit.setAttribute("id", "buttonEditId");
     this._visitAddTitle.innerText = "Додаткова інформація:";
     this._buttonShow.innerHTML = "Показати більше";
-    // this._buttonHide.innerHTML = "Приховати";
     this._buttonEdit.innerHTML = "Редагувати";
 
     this._visitTitle.append(this._elFullName, this._elDoctor);
@@ -100,10 +97,6 @@ export default class Visit {
       visit.showInfo();
     });
 
-    // this._buttonHide.addEventListener("click", function () {
-    //   visit.hideInfo();
-    // });
-
     this._visitCheckbox.addEventListener("click", function () {
       visit.checkStatus();
       visit.save();
@@ -120,23 +113,24 @@ export default class Visit {
   }
 
   delete(e) {
-   this._close.classList.add("rotate")
+    this._close.classList.add("rotate");
     deleteVisit(this._responseObject.id).then((response) => {
       if (response.ok) {
         removeItem(grid.getItem(e.target.closest(".visit-item")));
         this._visitWrapper.remove();
-
       }
     });
   }
 
   async save() {
     if (this._newRecord) {
-      await postVisit(this.data);
+      await postVisit(this.data).then((response) => {
+      });
       this._newRecord = false;
       this.render();
     } else {
-      await putVisit(this.data);
+      await putVisit(this.data).then((response) => {
+      });
     }
   }
 
@@ -150,22 +144,18 @@ export default class Visit {
     }
   }
 
-  // hideInfo() {
-  //   if (this._visitAdd.style.display === "block") {
-  //     this._visitAdd.style.display = "none";
-  //     this._buttonShow.style.display = "block";
-  //   }
-  // }
-
   checkStatus() {
     if (this._visitCheckbox.checked) {
       this.data.status = "Виконано";
       this._visitCheckboxDescription.innerText = "Візит закритий";
-      console.log(this.data);
+      this._visit.style.backgroundColor = "rgb(192, 208, 219)";
+      // console.log(this.data);
       this._buttonEdit.disabled = true;
     } else {
       this.status = "В процесі";
+      // console.log(this.data);
       this._visitCheckboxDescription.innerText = "Візит відкритий";
+      this._visit.style.backgroundColor = "rgb(240, 248, 255)";
       this._buttonEdit.disabled = false;
     }
   }
@@ -252,17 +242,16 @@ export default class Visit {
       this.createVisitCheckbox();
     }
     this.data.status = value;
-    if (value == "Виконано") {
-      this._visit.style.backgroundColor = "rgb(192, 208, 219, 0.85)";
-      this._visitCheckbox.checked = true;
-      this._visitCheckbox.disabled = true;
-      this._visitCheckboxDescription.innerText = "Візит закритий";
-    } else {
-      this._visit.style.backgroundColor = "rgb(240, 248, 255, 0.85)";
-      this._visitCheckbox.checked = false;
-      this._visitCheckbox.disabled = false;
-      this._visitCheckboxDescription.innerText = "Візит відкритий";
-    }
+    // if (value == "Виконано") {
+    //   this._visitCheckbox.checked = true;
+    //   this._visitCheckbox.disabled = true;
+    //   this._visitCheckboxDescription.innerText = "Візит закритий";
+    // } else {
+
+    //   this._visitCheckbox.checked = false;
+    //   this._visitCheckbox.disabled = false;
+    //   this._visitCheckboxDescription.innerText = "Візит відкритий";
+    // }
   }
 
   createVisitCheckbox() {

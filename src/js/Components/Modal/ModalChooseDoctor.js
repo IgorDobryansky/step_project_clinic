@@ -54,7 +54,7 @@ export default class ModalChooseDoctor extends Modal {
     this._optionDoctorDentist.value = "Стоматолог";
     this._optionDoctorCardiologist = document.createElement("option");
     this._optionDoctorCardiologist.innerText = "Кардіолог";
-    this._optionDoctorCardiologist.value   = "Кардіолог";
+    this._optionDoctorCardiologist.value = "Кардіолог";
     this._doctorSelect.append(
       this._optionDoctorEmpty,
       this._optionDoctorCardiologist,

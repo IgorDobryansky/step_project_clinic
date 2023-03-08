@@ -12,6 +12,7 @@ export default class ModalVisit extends Modal {
     }
     this.createVisitHtml();
     this.visit = visit;
+    this.doctor = visit.doctor;
     this.purpose = visit.title;
     this.description = visit.description;
     this.urgency = visit.urgency;
@@ -49,11 +50,9 @@ export default class ModalVisit extends Modal {
       } else {
         fieldsArray.map((input) => {
           input.addEventListener("input", () => {
-            // if (input.value) {
             fieldsArray.map((input) => {
               input.classList.remove("error");
             });
-            // }
           });
         });
       }
@@ -70,7 +69,6 @@ export default class ModalVisit extends Modal {
     fieldsArray.push(this._urgencySelect);
     fieldsArray.map((input) => {
       if (!input.value) {
-        // input.style.background = "white";
         input.classList.add("error");
         isEmpty = true;
       }
@@ -204,6 +202,7 @@ export default class ModalVisit extends Modal {
   }
 
   updateVisitFields() {
+    this.visit.doctor = this.doctor;
     this.visit.description = this.description;
     this.visit.fullName = this.fullName;
     this.visit.title = this.purpose;
