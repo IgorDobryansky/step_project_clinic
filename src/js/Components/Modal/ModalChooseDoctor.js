@@ -1,11 +1,9 @@
 import Modal from "./Modal.js";
-import { getAllVisits, renderAllVisits } from "../../helpers/visitRequests.js";
-import { postVisit } from "../../helpers/visitRequests.js";
 import VisitDentist from "../Visit/VisitDentist.js";
 import VisitTherapist from "../Visit/VisitTherapist.js";
 import VisitCardiologist from "../Visit/VisitCardiologist.js";
 import ModalVisitDentist from "./ModalVisitDentist";
-import ModalVisitTherapist from "../Modal/ModalVisitTherapist.js"
+import ModalVisitTherapist from "../Modal/ModalVisitTherapist.js";
 import ModalVisitCardiologist from "./ModalVisitCardiologist.js";
 
 export default class ModalChooseDoctor extends Modal {
@@ -45,15 +43,18 @@ export default class ModalChooseDoctor extends Modal {
     this._visitForm.className = "form visit-form";
     this._visitForm.name = "visitFields";
     this._optionDoctorEmpty = document.createElement("option");
-    this._optionDoctorEmpty.innerText = "...";
+    this._optionDoctorEmpty.innerText = "Оберіть лікаря";
     this._optionDoctorEmpty.disabled = true;
     this._optionDoctorEmpty.selected = true;
     this._optionDoctorTherapist = document.createElement("option");
     this._optionDoctorTherapist.innerText = "Терапевт";
+    this._optionDoctorTherapist.value = "Терапевт";
     this._optionDoctorDentist = document.createElement("option");
     this._optionDoctorDentist.innerText = "Стоматолог";
+    this._optionDoctorDentist.value = "Стоматолог";
     this._optionDoctorCardiologist = document.createElement("option");
     this._optionDoctorCardiologist.innerText = "Кардіолог";
+    this._optionDoctorCardiologist.value   = "Кардіолог";
     this._doctorSelect.append(
       this._optionDoctorEmpty,
       this._optionDoctorCardiologist,

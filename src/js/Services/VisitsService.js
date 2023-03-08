@@ -5,7 +5,7 @@ export async function postVisit(visitObject) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
     },
-    body: JSON.stringify({ ...visitObject, status: "open" }),
+    body: JSON.stringify({ ...visitObject, status: "В процесі" }),
   });
 
   let response = await request.json();
@@ -21,14 +21,7 @@ export async function putVisit(visitObject) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
       },
-      body: JSON.stringify({
-        title: "Визит к кардиологу",
-        description: "Плановый визит",
-        doctor: "Cardiologist",
-        bp: "24",
-        age: 23,
-        weight: 70,
-      }),
+      body: JSON.stringify({ ...visitObject }),
     }
   );
 
@@ -46,6 +39,9 @@ export async function deleteVisit(visitId) {
       },
     }
   );
+
+  let response = await request;
+  return response;
 }
 
 export async function deleteAllVisit() {
@@ -61,7 +57,7 @@ export async function deleteAllVisit() {
     deleteVisit(res.id);
   });
 }
-
+// deleteAllVisit()
 export async function getAllVisits() {
   let request = await fetch("https://ajax.test-danit.com/api/v2/cards", {
     method: "GET",

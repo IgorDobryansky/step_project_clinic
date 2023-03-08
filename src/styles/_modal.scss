@@ -4,14 +4,14 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 7;
   display: flex;
   justify-content: center;
   padding-top: 10px;
-  // backdrop-filter: blur(6px);
   @include font-family-Roboto-400-italic;
-  animation: show 400ms linear;
-  
-  @keyframes show {
+  animation: show-modal 400ms linear;
+
+  @keyframes show-modal {
     0% {
       transform: translateX(-100%);
     }
@@ -19,11 +19,11 @@
       transform: translateX(0);
     }
   }
-  &.hide {
+  &.hide-modal {
     transform: translateX(-100%);
-    animation: hide 400ms linear;
+    animation: hide-modal 400ms linear;
   }
-  @keyframes hide {
+  @keyframes hide-modal {
     0% {
       transform: translateX(0);
     }
@@ -179,6 +179,18 @@
       .create-visit {
         margin-top: 20px;
       }
+    }
+  }
+  .error {
+    animation: error 200ms linear 4;
+    background-color: red;
+  }
+  @keyframes error {
+    0% {
+      background-color: white;
+    }
+    100% {
+      background-color: red;
     }
   }
 }

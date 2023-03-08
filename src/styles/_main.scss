@@ -1,9 +1,6 @@
 .main {
-  //margin-top: 15px;
 
   background-size: cover;
-  //opacity: 0.3;
-  //height: 50%;
   width: 100%;
   min-height: 80%;
   background-image: url(../img/v870-mynt-20.jpg);
@@ -49,16 +46,13 @@
     padding: 5px 10px;
   }
 
-  #visits-wrapper {
-    overflow: hidden;
+  #visits {
+    position: relative;
     background-size: auto;
     padding: 50px;
     height: 100%;
     display: flex;
     justify-content: center;
-    // .visits {
-    //   //width: 70%;
-    // }
     .visitDiv {
       padding: 20px;
       border: 1px solid black;
@@ -123,10 +117,7 @@
       width: 60px;
     }
 
-    .visit_addinfo {
-      display: none;
-      margin-top: 10px;
-    }
+   
 
     h1 {
       font-size: 21px;
