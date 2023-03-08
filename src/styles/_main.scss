@@ -10,31 +10,36 @@
   .search-bar {
     width: 100%;
     height: 100px;
-
     padding: 10px 0;
     background-color: #9cd0d4;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
-
-    //border: 1px solid black;
   }
 
   .search-bar_input {
+    @include font-family-Roboto-400-italic;
+    font-size: 18px;
     margin-right: 10px;
     height: 30px;
     border-radius: 10px;
     width: 300px;
     padding: 5px 10px;
+    &::placeholder{
+      @include font-family-Roboto-400-italic;
+      font-size: 18px;
+    }
   }
-
+  
   .status-bar_select,
   .urgency-bar_select {
+    @include font-family-Roboto-400-italic;
+    font-size: 18px;
     margin-right: 10px;
     height: 30px;
     border-radius: 10px;
-    // width: 120px;
     padding: 5px 10px;
+    cursor: pointer;
   }
 
   #visits {
@@ -73,9 +78,7 @@
       display: flex;
     }
 
-    button {
-      @include buttons;
-    }
+
 
     .button_wrapper {
       display: flex;
@@ -84,11 +87,7 @@
       justify-content: space-between;
     }
 
-    .button_edit {
-      margin-left: 20px;
-      @include buttons;
-      margin-top: 20px;
-    }
+  
 
     .logo_done {
       background-image: url(../img/iconDone.svg);

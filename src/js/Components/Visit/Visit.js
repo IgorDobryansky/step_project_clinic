@@ -48,7 +48,6 @@ export default class Visit {
     this._visitAdd = document.createElement("div");
     this._visitAddTitle = document.createElement("div");
     this._visitAddCheckbox = document.createElement("div");
-    this._visitAddButtons = document.createElement("div");
 
     this._visitTitle.className = "visit_title";
     this._visitAdd.className = "visit_addinfo";
