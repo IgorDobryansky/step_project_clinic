@@ -1,4 +1,57 @@
-.visit-container{
-    border: 1px solid black;
-    width: 150px;
+.visit-item {
+  border: 1px solid black;
+  position: absolute;
+  width: 300px;
+  margin: 15px;
+  z-index: 1;
+  will-change: transform;
+  background: rgb(240, 248, 255);
+  &.muuri-item-positioning {
+    z-index: 2;
+  }
+  &.muuri-item-dragging,
+  &.muuri-item-releasing {
+    z-index: 9999;
+  }
+  &.muuri-item-dragging {
+    cursor: move;
+  }
+  &.muuri-item-hidden {
+    z-index: 0;
+  }
+  &.above-others {
+    z-index: 3;
+  }
+  &.above-others {
+    z-index: 3;
+  }
+  .visit-content {
+    position: relative;
+    width: 100%;
+    & .visit_addinfo {
+      display: none;
+      &.show-info {
+        display: block;
+      }
+    }
+    .delete-icon {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+    .rotate {
+      animation: rotate 800ms linear infinite;
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
 }

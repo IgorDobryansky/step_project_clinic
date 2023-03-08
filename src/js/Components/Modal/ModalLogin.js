@@ -107,7 +107,7 @@ export default class ModalLogin extends Modal {
         Login.loginStatus = true;
         new Login().render();
       } else {
-        throw "Перевірте правильність емейлу чи паролю або зареєструйтесь.";
+        throw "Перевірте введені данні або зареєструйтесь.";
       }
     } catch (error) {
       this._enterButton.disabled = false;

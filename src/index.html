@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./img/clinic_logo.png" />
-    <!-- <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css"> -->
     <title>Клініка</title>
   </head>
   <body>
@@ -21,34 +20,31 @@
       </header>
       <main class="main">
         <section class="search-bar">
-          <fieldset class="search-bar-field">
-            <legend class="search-bar_legend">Пошук</legend>
+          <input type="text" id="search_input" class="search-bar_input" />
 
-            <input type="text" id="search_input" class="search-bar_input" />
+          <select value="" class="status-bar_select" id="status-bar_select">
+            <option value="" selected>Статус візиту</option>
 
-            <select value="" class="search-bar_select">
-              <option name="" id="">Виконано</option>
+            <option value="Виконано">Виконано</option>
 
-              <option name="" id="">В процесі</option>
-            </select>
+            <option value="В процесі">В процесі</option>
+          </select>
 
-            <select value="" class="search-bar_select">
-              <option name="" id="">Високий</option>
+          <select value="" class="urgency-bar_select" id="urgency-bar_select">
+            <option value="" selected>Терміновість візиту</option>
 
-              <option name="" id="">Нормальний</option>
+            <option value="Висока">Висока</option>
 
-              <option name="" id="">Низький</option>
-            </select>
-          </fieldset>
+            <option value="Нормальна">Нормальна</option>
+
+            <option value="Низька">Низька</option>
+          </select>
         </section>
 
-        <h2 id="no-visits-placeholder" class="visits-availability">Візитів поки немає</h2>
-        <section id="visits-wrapper">
-          <div data-status="status" data-urgency="urgency">
-            <div id="visits" class="visits"></div>
-          </div>
-          
-        </section>
+        <h2 id="no-visits-placeholder" class="visits-availability">
+          Візитів поки немає
+        </h2>
+        <section id="visits"></section>
       </main>
       <footer class="footer">
         <p>Polyanskaya & Dobryanskiy</p>

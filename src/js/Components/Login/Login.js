@@ -1,12 +1,11 @@
 import ModalLogin from "../Modal/ModalLogin.js";
-import ModalCreateVisit from "../Modal/ModalCreateVisit.js";
 import ModalChooseDoctor from "../Modal/ModalChooseDoctor.js";
 import { renderAllVisits } from "../../helpers/visitRequests.js";
 
 export default class Login {
   constructor() {
     this._loginButton = document.createElement("button");
-    this._loginButton.className = "button-enter";
+    this._loginButton.className = "button enter-button";
     this._loginButton.innerText = "Увійти";
     this._loginButton.addEventListener("click", (event) => {
       this.getLogin();
@@ -23,10 +22,10 @@ export default class Login {
     });
 
     this._createVisit = document.createElement("button");
+    this._createVisit.className = "button create-button";
     this._createVisit.innerText = "Створити візит";
     this._createVisit.addEventListener("click", (event) => {
       event.preventDefault();
-      // new ModalCreateVisit().render();
       new ModalChooseDoctor().render();
     });
   }
@@ -42,12 +41,10 @@ export default class Login {
     loginButtons.innerHTML = "";
 
     if (localStorage.getItem("clinic-token")) {
-      Login.loginStatus = true;
       loginButtons.append(this._createVisit, this._logoutButton);
-      renderAllVisits()
+      renderAllVisits();
       return true;
     } else {
-      Login.loginStatus = false;
       loginButtons.append(this._loginButton);
       return false;
     }

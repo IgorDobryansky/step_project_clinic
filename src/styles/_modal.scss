@@ -2,14 +2,35 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  z-index: 7;
   display: flex;
   justify-content: center;
   padding-top: 10px;
-  backdrop-filter: blur(6px);
   @include font-family-Roboto-400-italic;
+  animation: show-modal 400ms linear;
+
+  @keyframes show-modal {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  &.hide-modal {
+    transform: translateX(-100%);
+    animation: hide-modal 400ms linear;
+  }
+  @keyframes hide-modal {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
   .modal-window {
     position: relative;
     height: fit-content;
@@ -43,7 +64,7 @@
     }
     .login-fieldset {
       position: relative;
-      margin-top: 30px;
+      margin-top: 10px;
       width: 100%;
       & .input:focus ~ .label,
       & .input:not(:placeholder-shown) ~ .label {
@@ -125,7 +146,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      .visit-form-fields{
+      .visit-form-fields {
         width: 100%;
       }
       select {
@@ -134,15 +155,15 @@
       fieldset {
         width: 100%;
         border: 1px solid black;
-        margin-top: 20px;
-        padding: 10px;
+        margin-top: 10px;
+        padding: 5px;
         legend {
           margin-left: 10px;
         }
         textarea {
           width: 100%;
           max-width: 298px;
-          height:60px;
+          height: 60px;
         }
         input {
           width: 100%;
@@ -158,6 +179,18 @@
       .create-visit {
         margin-top: 20px;
       }
+    }
+  }
+  .error {
+    animation: error 200ms linear 4;
+    background-color: red;
+  }
+  @keyframes error {
+    0% {
+      background-color: white;
+    }
+    100% {
+      background-color: red;
     }
   }
 }
