@@ -37,7 +37,7 @@ export default class Visit {
       this.description = "";
       this.urgency = "";
       this.status = "В процесі";
-      // this.id = responseObject.id
+      this.id = "responseObject.id";
       this._newRecord = true;
     }
     this._visitWrapper.setAttribute("data-status", this.status);
@@ -114,7 +114,8 @@ export default class Visit {
 
   delete(e) {
     this._close.classList.add("rotate");
-    deleteVisit(this._responseObject.id).then((response) => {
+    deleteVisit(this.id).then((response) => {
+      console.log(response)
       if (response.ok) {
         removeItem(grid.getItem(e.target.closest(".visit-item")));
         this._visitWrapper.remove();
