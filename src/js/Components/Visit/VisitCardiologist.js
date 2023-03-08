@@ -98,7 +98,6 @@ export default class VisitCardiologist extends Visit {
     this._visitAddCheckbox.append(this._visitCheckboxDescription);
     this._visitAddCheckbox.append(this._visitCheckbox);
     this._visitAdd.append(this._visitAddButtons);
-    // this._visitAddButtons.append(this._buttonHide);
     this._visitAddButtons.append(this._buttonEdit);
   }
 }

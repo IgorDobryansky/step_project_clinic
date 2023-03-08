@@ -2,7 +2,7 @@ import VisitCardiologist from "../Components/Visit/VisitCardiologist.js";
 import VisitDentist from "../Components/Visit/VisitDentist.js";
 import VisitTherapist from "../Components/Visit/VisitTherapist.js";
 
-import {getAllVisits} from "../Services/VisitsService.js"
+import { getAllVisits } from "../Services/VisitsService.js";
 
 export async function renderAllVisits() {
   let response = await getAllVisits();
@@ -14,6 +14,14 @@ export async function renderAllVisits() {
     if (res.doctor === "Терапевт") new VisitTherapist(res).render();
     else if (res.doctor === "Стоматолог") new VisitDentist(res).render();
     else if (res.doctor === "Кардіолог") new VisitCardiologist(res).render();
+  });
+}
+
+export function hideInfo() {
+  let array1 = document.querySelectorAll(".visit-item")
+  
+  array1.forEach((item) => {
+    item.classList.remove("above-others");
   });
 }
 

@@ -46,6 +46,8 @@ export async function deleteVisit(visitId) {
       },
     }
   );
+  let response = await request
+  return response
 }
 
 export async function deleteAllVisit() {
