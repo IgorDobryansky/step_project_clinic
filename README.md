@@ -24,6 +24,6 @@
 
 [Посилання на деплой проекту](https://ar4er.gitlab.io/step_project-clinic/)
 
-Перелік npm команд та використаних плагінів у збірці _webpack_ можна переглянути у файлі [package.json](https://gitlab.com/ar4er/step_project-clinic/-/blob/main/package.json) у полях _scripts_ та _devDependencies_ відповідно.
+Перелік npm команд та використаних плагінів у збірці [_webpack_](https://webpack.js.org/) можна переглянути у файлі [package.json](https://gitlab.com/ar4er/step_project-clinic/-/blob/main/package.json) у полях _scripts_ та _devDependencies_ відповідно.
 
 Для пошуку, фільтрації та drag & drop'у була використана бібліотека [_Muuri_](https://docs.muuri.dev/).
