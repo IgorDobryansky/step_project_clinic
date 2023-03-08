@@ -32,7 +32,7 @@ export default class VisitDentist extends Visit {
 
   render(){
     this.renderVisitBase();
-    let visit = this;
+    //let visit = this;
     this._visitAdd.append(this._elLastVisitDate); 
     this._visitAdd.append(this._visitAddCheckbox);
     this._visitAddCheckbox.append(this._visitCheckboxDescription);

@@ -89,7 +89,7 @@ export default class VisitCardiologist extends Visit {
 
   render(){
     this.renderVisitBase();
-    let visit = this;
+    //let visit = this;
 
     this._elBp = document.createElement('div');
     this._elBp.innerHTML = `Артеріальний тиск: ${this.bpUpper} / ${this.bpLower}`
