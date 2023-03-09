@@ -1,5 +1,6 @@
 import { hideInfo } from "../../helpers/functions.js";
 import Modal from "../Modal/Modal.js";
+import { isHasChildNodes } from "../../helpers/functions.js";
 
 export default class ModalVisit extends Modal {
   constructor(visit, modalEdit) {
@@ -46,7 +47,8 @@ export default class ModalVisit extends Modal {
         modal.updateAdditionalVisitFields();
         modal.visit.save().then((response) => {
           modal._createVisitButton.disabled = false;
-          hideInfo()
+          hideInfo() 
+          isHasChildNodes()
         });
         modal.close();
       } else {

@@ -52,7 +52,7 @@ function filter() {
     let element = item.getElement();
     let isSearchMatch = !searchFieldValue
       ? true
-      : (element.querySelector(".visit-title").innerText || "")
+      : (element.querySelector(".visit-description").innerText || "")
           .toLowerCase()
           .indexOf(searchFieldValue) > -1;
 

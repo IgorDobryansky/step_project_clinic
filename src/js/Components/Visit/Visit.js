@@ -240,6 +240,7 @@ export default class Visit {
   set description(value) {
     if (!this._elDescription) {
       this._elDescription = document.createElement("p");
+      this._elDescription.className = "visit-description";
     }
     this._elDescription.innerText = `Опис: ${value};`;
     this.data.description = value;
