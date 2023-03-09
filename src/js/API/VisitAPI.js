@@ -11,7 +11,7 @@ export class VisitApi {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
       },
-      body: JSON.stringify({ ...visit, status: "open" }),
+      body: JSON.stringify({ ...visit, status: "В процесі" }),
     });
 
     let response = await request.json();

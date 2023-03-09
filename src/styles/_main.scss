@@ -25,12 +25,12 @@
     border-radius: 10px;
     width: 300px;
     padding: 5px 10px;
-    &::placeholder{
+    &::placeholder {
       @include font-family-Roboto-400-italic;
       font-size: 18px;
     }
   }
-  
+
   .status-bar_select,
   .urgency-bar_select {
     @include font-family-Roboto-400-italic;
@@ -49,72 +49,56 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    .visitDiv {
-      padding: 20px;
-      border: 1px solid black;
-      border-radius: 15px;
-      box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(52, 47, 47),
-        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-      margin: 10px 0;
-      // background-color1: aliceblue;
-      // background-color2: rgba(192, 208, 219, 0.628);
-      font-family: "Courier New", Courier, monospace;
-      font-size: 20px;
-    }
+    // .visitDiv {
+    //   padding: 20px;
+    //   border: 1px solid black;
+    //   border-radius: 15px;
+    //   box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(52, 47, 47),
+    //     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    //   margin: 10px 0;
+    // background-color1: aliceblue;
+    // background-color2: rgba(192, 208, 219, 0.628);
+    // font-family: "Courier New", Courier, monospace;
+    // font-size: 20px;
+  }
+  .visits-availability {
+    text-align: center;
+    @include font-family-Roboto-700-italic;
+    font-size: 20px;
+  }
 
-    .visitTitle {
-      display: flex;
-      justify-content: space-between;
-      @include font-family-Roboto-700-italic;
-    }
+  .visitTitle {
+    display: flex;
+    justify-content: space-between;
+    @include font-family-Roboto-700-italic;
+  }
 
-    .visit_addtitle {
-      margin-bottom: 5px;
-      text-decoration: underline;
-      @include font-family-Roboto-400-italic;
-    }
+  .visit_addtitle {
+    margin-bottom: 5px;
+    text-decoration: underline;
+    @include font-family-Roboto-400-italic;
+  }
 
-    .visit_checkbox {
-      display: flex;
-    }
+  .visit_checkbox {
+    display: flex;
+  }
 
+  .button_wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    justify-content: space-between;
+  }
 
+  h1 {
+    font-size: 21px;
+    font-weight: bold;
+  }
 
-    .button_wrapper {
-      display: flex;
-      align-items: center;
-      padding-top: 20px;
-      justify-content: space-between;
-    }
-
-  
-
-    .logo_done {
-      background-image: url(../img/iconDone.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 55px;
-      width: 60px;
-      display: none;
-    }
-
-    .logo_undone {
-      background-image: url(../img/iconUndone.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 55px;
-      width: 60px;
-    }
-
-    h1 {
-      font-size: 21px;
-      font-weight: bold;
-    }
-
-    h2 {
-      font-size: 18px;
-      //text-decoration-line: underline;
-      font-weight: bold;
-    }
+  h2 {
+    font-size: 18px;
+    //text-decoration-line: underline;
+    font-weight: bold;
   }
 }
+// }

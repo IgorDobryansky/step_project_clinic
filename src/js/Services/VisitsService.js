@@ -5,7 +5,7 @@ export async function postVisit(visitObject) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
     },
-    body: JSON.stringify({ ...visitObject, status: "open" }),
+    body: JSON.stringify({ ...visitObject, status: "В процесі" }),
   });
 
   let response = await request.json();

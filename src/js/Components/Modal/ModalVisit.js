@@ -1,3 +1,4 @@
+import { hideInfo } from "../../helpers/functions.js";
 import Modal from "../Modal/Modal.js";
 
 export default class ModalVisit extends Modal {
@@ -45,6 +46,7 @@ export default class ModalVisit extends Modal {
         modal.updateAdditionalVisitFields();
         modal.visit.save().then((response) => {
           modal._createVisitButton.disabled = false;
+          hideInfo()
         });
         modal.close();
       } else {
