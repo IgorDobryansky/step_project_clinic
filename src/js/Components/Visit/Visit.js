@@ -1,6 +1,6 @@
 import ModalVisit from "../Modal/ModalVisit.js";
 import { grid, removeItem } from "../../draganddrop/draganddrop.js";
-// import { hideInfo } from "../../helpers/visitRequests.js";
+import { isHasChildNodes } from "../../helpers/functions.js";
 
 import {
   postVisit,
@@ -48,7 +48,14 @@ export default class Visit {
     this._visitAdd = document.createElement("div");
     this._visitAddTitle = document.createElement("div");
     this._visitAddCheckbox = document.createElement("div");
-
+    this._visitCheckbox = document.createElement("input");
+    this._visitCheckbox.setAttribute("type", "checkbox");
+    this._visitCheckboxDescription = document.createElement("p");
+    this._visitCheckboxDescription.innerText = "Візит закритий";
+    this._visitAddCheckbox.append(
+      this._visitCheckboxDescription,
+      this._visitCheckbox
+    );
     this._visitTitle.className = "visit_title";
     this._visitAdd.className = "visit_addinfo";
     this._buttonShow.className = "button button_show";
@@ -83,7 +90,7 @@ export default class Visit {
   renderVisitBase() {
     let visit = this;
     let visitId = this.visitId;
-
+    this.isDone();
     this._visitCard = document.getElementById("visits");
     grid.add(this._visitWrapper);
 
@@ -94,7 +101,6 @@ export default class Visit {
     });
 
     this._buttonShow.addEventListener("click", function () {
-      
       visit.showInfo();
     });
 
@@ -105,14 +111,6 @@ export default class Visit {
 
     this._buttonEdit.addEventListener("click", function () {
       visit.edit();
-    });
-  }
-
-  hideInfo() {
-    let array1 = document.querySelectorAll(".visit-item");
-
-    array1.forEach((item) => {
-      item.classList.remove("above-others");
     });
   }
 
@@ -127,6 +125,7 @@ export default class Visit {
       if (response.ok) {
         removeItem(grid.getItem(e.target.closest(".visit-item")));
         this._visitWrapper.remove();
+        isHasChildNodes();
       }
     });
   }
@@ -139,20 +138,13 @@ export default class Visit {
       this._newRecord = false;
       this.render();
     } else {
-      await putVisit(this.data).then((response) => {});
+      await putVisit(this.data).then((response) => {
+        this.data = response;
+      });
     }
   }
 
   showInfo() {
-    //   let array2 = document.querySelectorAll(".visit_addinfo");
-    // let array1 = document.querySelectorAll(".visit-item");
-
-    //   array1.forEach((item) => {
-    //     item.classList.remove("above-others");
-    //   });
-    //   array2.forEach((item) => {
-    //     item.classList.remove("show-info");
-    //   });
     this._visitAdd.classList.toggle("show-info");
     this._visitWrapper.classList.toggle("above-others");
     if (this._visitAdd.classList.contains("show-info")) {
@@ -177,6 +169,22 @@ export default class Visit {
       this.data.status = "В процесі";
       this._buttonEdit.disabled = false;
       this.save();
+    }
+    this._visitWrapper.setAttribute("data-status", this.data.status);
+  }
+
+  isDone() {
+    if (this.data.status === "Виконано") {
+      this._visitCheckboxDescription.innerText = "Візит закритий";
+      this._visit.style.backgroundColor = "rgb(192, 208, 219)";
+      this._buttonEdit.disabled = true;
+      this._visitCheckbox.checked = "checked";
+    }else if (this.data.status === "В процесі"){
+      this._visitCheckboxDescription.innerText = "Візит відкритий";
+      this._visit.style.backgroundColor = "rgb(240, 248, 255)";
+      this._buttonEdit.disabled = false;
+      this._visitCheckbox.checked = "";
+
     }
   }
 
@@ -251,23 +259,10 @@ export default class Visit {
   }
 
   get status() {
-    if (!this._visitCheckbox) {
-      this.createVisitCheckbox();
-    }
     return this.data.status;
   }
 
   set status(value) {
-    if (!this._visitCheckbox) {
-      this.createVisitCheckbox();
-    }
     this.data.status = value;
-  }
-
-  createVisitCheckbox() {
-    this._visitCheckbox = document.createElement("input");
-    this._visitCheckbox.setAttribute("type", "checkbox");
-    this._visitCheckboxDescription = document.createElement("p");
-    this._visitCheckboxDescription.innerText = "Візит відкритий";
   }
 }

@@ -17,25 +17,6 @@ export async function renderAllVisits() {
   });
 }
 
-export function hideInfo() {
-  let array1 = document.querySelectorAll(".visit-item")
-  
-  array1.forEach((item) => {
-    item.classList.remove("above-others");
-  });
-}
 
-// export async function getVisit(visitId) {
-//   let request = await fetch(
-//     `https://ajax.test-danit.com/api/v2/cards/${visitId}`,
-//     {
-//       method: "GET",
-//       headers: {
-//         Authorization: `Bearer ${localStorage.getItem("clinic-token")}`,
-//       },
-//     }
-//   );
 
-//   let response = await request.json();
-//   return response;
-// }
+

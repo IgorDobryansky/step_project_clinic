@@ -32,10 +32,7 @@ export default class VisitTherapist extends Visit {
   render(){
     this.renderVisitBase();
     let visit = this;
-    this._visitAdd.append(this._elAge); 
-    this._visitAdd.append(this._visitAddCheckbox);
-    this._visitAddCheckbox.append(this._visitCheckboxDescription);
-    this._visitAddCheckbox.append(this._visitCheckbox);
+    this._visitAdd.append(this._elAge,this._visitAddCheckbox); 
     this._visitAdd.append(this._buttonEdit);
   }
 }
